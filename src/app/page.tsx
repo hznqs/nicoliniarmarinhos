@@ -1,65 +1,105 @@
-import Image from "next/image";
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
+import { ArrowRight, Star } from "lucide-react"
+import { prisma } from "@/lib/prisma"
+import Link from "next/link"
+import Image from "next/image"
+import { TestimonialsCarousel } from "@/components/ui/testimonials-carousel"
+import { CategoriesCarousel } from "@/components/ui/categories-carousel"
 
-export default function Home() {
+export default async function Home() {
+  const banners = await prisma.banner.findMany({
+    where: { isActive: true },
+    orderBy: { order: "asc" },
+  })
+
+  const heroBanner = banners.length > 0 ? banners[0] : null
+
+  const categories = await prisma.category.findMany({
+    take: 9,
+    include: {
+      _count: {
+        select: { products: { where: { isActive: true } } }
+      }
+    }
+  })
+
+  const testimonials = await prisma.testimonial.findMany({
+    where: { isApproved: true },
+    take: 9,
+    orderBy: { createdAt: "desc" },
+  })
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      
+      <main className="flex-1">
+        {/* Hero Section */}
+        {heroBanner && (
+          <section className="relative w-full h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 z-0">
+              <div className="absolute inset-0 bg-black/40 z-10"></div>
+              <img 
+                alt={heroBanner.title || "Banner"} 
+                className="w-full h-full object-cover object-center" 
+                src={heroBanner.imageUrl}
+              />
+            </div>
+            <div className="relative z-20 text-center px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-4xl mx-auto flex flex-col items-center">
+              {heroBanner.title && (
+                <h1 className="font-heading text-[32px] md:text-[48px] font-bold text-white mb-6 drop-shadow-lg tracking-tight">
+                  {heroBanner.title}
+                </h1>
+              )}
+              {heroBanner.subtitle && (
+                <p className="font-sans text-[18px] text-white/90 mb-10 max-w-2xl font-light leading-relaxed">
+                  {heroBanner.subtitle}
+                </p>
+              )}
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Link href={heroBanner.linkUrl || "/produtos"} className="bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] px-8 py-4 rounded font-sans text-[14px] font-medium hover:bg-white hover:text-primary transition-all duration-300 shadow-lg inline-block">
+                  Conheça nossos produtos
+                </Link>
+                <Link href="/contato" className="border border-white text-white px-8 py-4 rounded font-sans text-[14px] font-medium hover:bg-white/10 transition-all duration-300 inline-block">
+                  Solicitar orçamento
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Categories Grid */}
+        {categories.length > 0 && (
+          <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface max-w-[var(--spacing-container-max)] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-[32px] text-primary mb-4 font-semibold">Nossas Categorias</h2>
+              <p className="font-sans text-[16px] text-muted-foreground max-w-2xl mx-auto">
+                Explore nossa vasta seleção organizada para facilitar sua busca pela perfeição.
+              </p>
+            </div>
+            
+            <CategoriesCarousel categories={categories} />
+            <div className="mt-12 text-center">
+              <Link href="/categorias" className="text-primary font-medium hover:underline inline-flex items-center gap-2">
+                Ver todas as categorias <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+        )}
+
+        {/* Testimonials */}
+        {testimonials.length > 0 && (
+          <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-low max-w-[var(--spacing-container-max)] mx-auto">
+             <div className="text-center mb-16">
+              <h2 className="font-heading text-[32px] text-primary mb-4 font-semibold">O Que Dizem Nossos Clientes</h2>
+            </div>
+            <TestimonialsCarousel testimonials={testimonials} />
+          </section>
+        )}
       </main>
+
+      <Footer />
     </div>
-  );
+  )
 }

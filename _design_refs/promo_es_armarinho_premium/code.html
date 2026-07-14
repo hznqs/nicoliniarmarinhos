@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Promoções - Armarinho Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#775a03",
+                        "on-secondary-container": "#656464",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-fixed": "#ffdf99",
+                        "on-surface-variant": "#4d4637",
+                        "tertiary": "#5d5f5f",
+                        "inverse-on-surface": "#f0f0f2",
+                        "surface-container-highest": "#e2e2e4",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#3c3e3e",
+                        "tertiary-container": "#a8a9a9",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#d0c5b2",
+                        "primary-fixed-dim": "#e8c267",
+                        "surface-variant": "#e2e2e4",
+                        "surface-tint": "#775a03",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f5",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "secondary-container": "#e5e2e1",
+                        "on-primary-fixed": "#251a00",
+                        "surface-container": "#eeeef0",
+                        "inverse-surface": "#2f3132",
+                        "secondary": "#5f5e5e",
+                        "on-background": "#1a1c1d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-high": "#e8e8ea",
+                        "on-surface": "#1a1c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#7f7666",
+                        "surface": "#f9f9fb",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-primary-container": "#4f3a00",
+                        "inverse-primary": "#e8c267",
+                        "background": "#f9f9fb",
+                        "primary-container": "#c8a44d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Button Styles based on guidelines */
+        .btn-primary {
+            background-color: #1a1c1d; /* Closest to Pure Black in palette */
+            color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #c8a44d; /* primary-container (Gold) */
+        }
+        .btn-secondary {
+            border: 1px solid #1a1c1d;
+            background-color: transparent;
+            color: #1a1c1d;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #f3f3f5;
+        }
+        /* Ambient shadow for cards */
+        .card-hover {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .card-hover:hover {
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar (Shared Component) -->
+<header class="docked full-width top-0 bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none shadow-[0px_10px_30px_rgba(0,0,0,0.04)] sticky z-50">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-20">
+<!-- Brand Logo -->
+<a class="font-display-lg text-display-lg text-primary dark:text-inverse-primary tracking-tight" href="#">Armarinho</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex items-center h-full" href="#">Início</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex items-center h-full" href="#">Produtos</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex items-center h-full" href="#">Categorias</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex items-center h-full" href="#">Novidades</a>
+<!-- Active Link: Promoções -->
+<a class="font-body-md text-body-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex flex-col justify-center h-full mt-[2px]" href="#">Promoções</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex items-center h-full" href="#">Sobre</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 flex items-center h-full" href="#">Contato</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="scale-95 duration-200 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+</button>
+<button class="scale-95 duration-200 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 24px;">search</span>
+</button>
+</div>
+<div class="hidden lg:flex items-center gap-4">
+<button class="btn-secondary px-6 py-2 rounded font-label-md text-label-md uppercase tracking-wider scale-95 duration-200">WhatsApp</button>
+<button class="btn-primary px-6 py-2 rounded font-label-md text-label-md uppercase tracking-wider scale-95 duration-200">Orçamento</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center w-full max-w-container-max mx-auto px-margin-desktop py-16 gap-16">
+<!-- Hero Title Section -->
+<section class="w-full text-center space-y-4 mb-8">
+<h1 class="font-display-lg text-display-lg text-on-background">Ofertas Exclusivas</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Descubra seleções premium de materiais têxteis e ferramentas de artesanato com valores especiais. Uma oportunidade curada para elevar suas criações.
+            </p>
+</section>
+<!-- Featured Bento Grid -->
+<section class="w-full grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-gutter h-auto md:h-[600px]">
+<!-- Large Feature Card -->
+<article class="relative group overflow-hidden bg-surface-container-low rounded-DEFAULT col-span-1 md:col-span-2 md:row-span-2 card-hover flex flex-col">
+<div class="absolute top-6 left-6 z-10 flex gap-2">
+<span class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-1 rounded-full uppercase tracking-wider">-40%</span>
+<span class="bg-surface-container-lowest text-on-background font-label-md text-label-md px-4 py-1 rounded-full border border-surface-dim">Destaque</span>
+</div>
+<div class="w-full h-2/3 relative overflow-hidden bg-surface-container">
+<img alt="Featured Silk Thread" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-5hwaiV-oSnTU6dVbcC3aLrmLErTLcWmCtV1x7oleIG-4kdTWHywGsAt-XcIp3Tt0NNGO50-arApKSxJ4zrvN8vvwSezvR6vP2jQwS5403nGComawzSib7yxxn2ip-WTEZS8-wny9VGbrsFF2Aly24zQS5hGu4JAU8zqIWGAo7xzBWxBmwUJTUDCsprBuwf-rA-VJK21agDRb3UGq_QpLvA-M9DblaLAvP0bzMecoKGhY9Nmx_7JW"/>
+</div>
+<div class="p-8 flex flex-col justify-between flex-grow bg-surface-container-lowest">
+<div>
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-2">Fios Nobres</p>
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Conjunto Fios de Seda Orgânica</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Perfeito para bordados finos e alta costura. Brilho inigualável e resistência superior.</p>
+</div>
+<div class="flex items-end gap-4 mt-6">
+<span class="font-body-lg text-body-lg text-outline line-through">R$ 450,00</span>
+<span class="font-headline-sm text-headline-sm text-on-background">R$ 270,00</span>
+</div>
+</div>
+</article>
+<!-- Small Feature Card 1 -->
+<article class="relative group overflow-hidden bg-surface-container-low rounded-DEFAULT card-hover flex flex-col">
+<div class="absolute top-4 right-4 z-10">
+<span class="bg-primary-container text-on-primary font-label-md text-label-md px-3 py-1 rounded-full uppercase tracking-wider">-25%</span>
+</div>
+<div class="w-full h-48 relative overflow-hidden bg-surface-container">
+<img alt="Premium Scissors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTbInhwnx_dvDRvcjOat_6037oKY4ahbT4cYpSTKQGAJ7Ed-H9MGUeQRrl-fryQpRwiFqLy3OGQrvQ6xyJabxRndKUIJPj7iKC99UPfjtV1oHVd99tPdRxEmbcgrvk5ZMRhOAbRhyUubEUSO9RDYiCkKSEUISX80OTv2ZfEXHCEzBM4pOt3Wkl7Xy6d4DJeQcJAhk8DQjrF1WymPfTaYG7YgEAmYgTGMoNf50PwszyifdnAxyaxeOM"/>
+</div>
+<div class="p-6 flex flex-col flex-grow bg-surface-container-lowest">
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-1">Ferramentas</p>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-background mb-auto">Tesoura de Alfaiate Titânio</h3>
+<div class="flex items-end gap-3 mt-4">
+<span class="font-body-md text-body-md text-outline line-through">R$ 180,00</span>
+<span class="font-headline-sm text-headline-sm text-on-background">R$ 135,00</span>
+</div>
+</div>
+</article>
+<!-- Small Feature Card 2 -->
+<article class="relative group overflow-hidden bg-surface-container-low rounded-DEFAULT card-hover flex flex-col">
+<div class="absolute top-4 right-4 z-10">
+<span class="bg-primary-container text-on-primary font-label-md text-label-md px-3 py-1 rounded-full uppercase tracking-wider">-30%</span>
+</div>
+<div class="w-full h-48 relative overflow-hidden bg-surface-container">
+<img alt="Lace Ribbon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgnt9tJ4emnDICIXSNR-Xqoab84gGSMchVbSURz8klry92aSFc9iU8yq5ww_DNhE9OSqB4j_wag2wDfI_SDW1ZM8UTrqvpBT_kSzAZU7Aa2igrxm0lucRjNrv6gXwqxbxOVhg37RHssn4qsGMCfwgAIeWjkRii9m_EptTi3h0gNNRAsITv2-loszpmbwXnZxVYO0M8liDq7o1pIL--bSHlha5bVh4V0NgcmElxJ092DaCaqDZl-7XF"/>
+</div>
+<div class="p-6 flex flex-col flex-grow bg-surface-container-lowest">
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-1">Aviamentos</p>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-background mb-auto">Renda Francesa Chantilly</h3>
+<div class="flex items-end gap-3 mt-4">
+<span class="font-body-md text-body-md text-outline line-through">R$ 90,00/m</span>
+<span class="font-headline-sm text-headline-sm text-on-background">R$ 63,00/m</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-surface-container-highest my-8"></div>
+<!-- Catalog Grid -->
+<section class="w-full">
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline-md text-headline-md text-on-background">Mais Oportunidades</h2>
+<div class="hidden md:flex gap-2">
+<!-- Simple filter pills -->
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-background font-label-md text-label-md hover:bg-surface-container-high transition-colors">Todos</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-lowest border border-surface-dim text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">Fios</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-lowest border border-surface-dim text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">Agulhas</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-x-gutter gap-y-12">
+<!-- Standard Catalog Card 1 -->
+<article class="group cursor-pointer flex flex-col gap-4 card-hover p-4 -m-4 rounded-lg">
+<div class="w-full aspect-[4/5] relative overflow-hidden bg-surface-container rounded-DEFAULT">
+<div class="absolute top-3 right-3 z-10">
+<span class="bg-primary-container text-on-primary font-caption text-caption px-2 py-1 rounded-sm uppercase tracking-widest">-15%</span>
+</div>
+<img alt="Merino Wool" class="w-full h-full object-cover" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4aRURedvPk9t2198JvfBY_-fFI8t24seaqA5pJBRveeW8axYjwxqUxj1HJVXw3srXZvmKHrdzFqEchF0bi1S34N-8om4QsCi83sJIal7j2eaTj95bc9i3VrlK8XrpyqoHWA20iRmErmIUQPbwkThG0hPUC_wrH3LPLGI4ckIVazZTsGhuGwcPAyfEig0psyyJygZv-wlAVWznGVZnnOETscCLFT6UK0Jr-tY8UJvHfRuujnwMPFuR"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-1">Lãs Premium</p>
+<h4 class="font-body-md text-body-md text-on-background leading-tight">Novelo Lã Merino Pura 100g</h4>
+</div>
+<div class="flex flex-col mt-auto">
+<span class="font-caption text-caption text-outline line-through">R$ 120,00</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-background">R$ 102,00</span>
+</div>
+</article>
+<!-- Standard Catalog Card 2 -->
+<article class="group cursor-pointer flex flex-col gap-4 card-hover p-4 -m-4 rounded-lg">
+<div class="w-full aspect-[4/5] relative overflow-hidden bg-surface-container rounded-DEFAULT">
+<div class="absolute top-3 right-3 z-10">
+<span class="bg-primary-container text-on-primary font-caption text-caption px-2 py-1 rounded-sm uppercase tracking-widest">-20%</span>
+</div>
+<img alt="Crochet Hooks" class="w-full h-full object-cover" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE3cdqfXb4UpCvfAW_zp7av71NVI1VwSDTUIzMJYIlGwW80GTVd-luEzY1sKbY8xnoGnObMVUlF1_7sOIwv3eyC6z7aG8TV5mF81t5Hs-kv0kJxiA4gDeZzOwWVbZ89oO6WoExxv4ka8LesfXQU6-NIz_hNCrXR-5HgHldDyG6n_nFvx-ev4PQHnbsX9QNFB-g9xXjAo2d39wL4MQtOj2MQr6x_MLVAZNuTgbVJxInWu2H0D_E9y0G"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-1">Ferramentas</p>
+<h4 class="font-body-md text-body-md text-on-background leading-tight">Kit Agulhas Crochê Bambu</h4>
+</div>
+<div class="flex flex-col mt-auto">
+<span class="font-caption text-caption text-outline line-through">R$ 85,00</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-background">R$ 68,00</span>
+</div>
+</article>
+<!-- Standard Catalog Card 3 -->
+<article class="group cursor-pointer flex flex-col gap-4 card-hover p-4 -m-4 rounded-lg">
+<div class="w-full aspect-[4/5] relative overflow-hidden bg-surface-container rounded-DEFAULT">
+<div class="absolute top-3 right-3 z-10">
+<span class="bg-primary-container text-on-primary font-caption text-caption px-2 py-1 rounded-sm uppercase tracking-widest">-50%</span>
+</div>
+<img alt="Vintage Buttons" class="w-full h-full object-cover" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa-jK8g1Uz7zddlxeEic-VoxNJkv3-DU0NH65qhEqajzEPZARKH6vYBTjqvOWN6ehOK71paheoDRH2fhtJ36ZjaQXqf3NJrH0i2PPw9OE-0GS7VmkQFIkIuAP6QApc2bHn1cYGRYtyNMpjtU6pmQPYQz8gyOISGRAnINsRrf3uGzTE9TUIMGynpCEiIGY-51xGjTqg_DrP5Jj5e83ZgUIFgEFWEmuxbs0xVapSNNQqIcz1OrKTwEQh"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-1">Botões</p>
+<h4 class="font-body-md text-body-md text-on-background leading-tight">Lote Botões Vintage Madrepérola</h4>
+</div>
+<div class="flex flex-col mt-auto">
+<span class="font-caption text-caption text-outline line-through">R$ 200,00</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-background">R$ 100,00</span>
+</div>
+</article>
+<!-- Standard Catalog Card 4 -->
+<article class="group cursor-pointer flex flex-col gap-4 card-hover p-4 -m-4 rounded-lg">
+<div class="w-full aspect-[4/5] relative overflow-hidden bg-surface-container rounded-DEFAULT">
+<div class="absolute top-3 right-3 z-10">
+<span class="bg-primary-container text-on-primary font-caption text-caption px-2 py-1 rounded-sm uppercase tracking-widest">-10%</span>
+</div>
+<img alt="Embroidery Hoop" class="w-full h-full object-cover" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKshGBsDzEajdhU8z1Xyy3Qkus9wLgme80djSpgg9Uwg1gUmsbWDb7IDanf56E9IAzgZ03m16x29KdhjJ_ntdBVw1NULgGU3aiNJ5zZif_omA0LbsyIGJOkqN-J7Blw6nlT8U9t4Tzutqgoh0gzm-qMX_PON4bPPY5-e4e2GyuSd06r1i-tsRH8G4iVSy81DkjTyqOeq7-Ss4zIGwLYR7N5t27decZYFv7YnuPf2UfmnwNJW4iVxJQ"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-1">Bordado</p>
+<h4 class="font-body-md text-body-md text-on-background leading-tight">Bastidor Madeira Nobre Ajustável</h4>
+</div>
+<div class="flex flex-col mt-auto">
+<span class="font-caption text-caption text-outline line-through">R$ 60,00</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-background">R$ 54,00</span>
+</div>
+</article>
+</div>
+<div class="w-full flex justify-center mt-16">
+<button class="btn-secondary px-8 py-3 rounded font-label-md text-label-md uppercase tracking-wider">Carregar Mais Ofertas</button>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto flat no shadows">
+<!-- Brand & Copyright Column -->
+<div class="flex flex-col gap-6 md:col-span-1">
+<span class="font-display-lg text-display-lg text-primary dark:text-inverse-primary tracking-tight">Armarinho</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mt-auto">
+                    © 2024 Armarinho Premium. All rights reserved.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-4 md:col-span-1">
+<h4 class="font-label-md text-label-md text-primary dark:text-inverse-primary uppercase tracking-widest mb-2 font-bold text-primary font-bold">Contato</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Address</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Phone</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Email</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">WhatsApp</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-4 md:col-span-1">
+<h4 class="font-label-md text-label-md text-primary dark:text-inverse-primary uppercase tracking-widest mb-2 font-bold text-primary font-bold">Explorar</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Opening Hours</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Interactive Map</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Quick Links</a>
+</div>
+<!-- Social & Newsletter Column -->
+<div class="flex flex-col gap-4 md:col-span-1">
+<h4 class="font-label-md text-label-md text-primary dark:text-inverse-primary uppercase tracking-widest mb-2 font-bold text-primary font-bold">Social</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Facebook</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline mt-4" href="#">Newsletter</a>
+</div>
+</div>
+</footer>
+</body></html>

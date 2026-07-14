@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Armarinho Premium - Início</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#4f3a00",
+                        "inverse-primary": "#e8c267",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#f3f3f5",
+                        "on-primary-fixed": "#251a00",
+                        "tertiary-container": "#a8a9a9",
+                        "outline-variant": "#d0c5b2",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "surface-dim": "#d9dadc",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#3c3e3e",
+                        "on-background": "#1a1c1d",
+                        "primary": "#775a03",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#775a03",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "primary-container": "#c8a44d",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#656464",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3132",
+                        "surface-variant": "#e2e2e4",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface": "#f9f9fb",
+                        "secondary": "#5f5e5e",
+                        "on-surface-variant": "#4d4637",
+                        "surface-container": "#eeeef0",
+                        "secondary-container": "#e5e2e1",
+                        "surface-container-highest": "#e2e2e4",
+                        "tertiary": "#5d5f5f",
+                        "outline": "#7f7666",
+                        "on-surface": "#1a1c1d",
+                        "primary-fixed": "#ffdf99",
+                        "primary-fixed-dim": "#e8c267",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9fb",
+                        "inverse-on-surface": "#f0f0f2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#474646"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface shadow-[0px_10px_30px_rgba(0,0,0,0.04)] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto h-20">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tight">
+                Armarinho
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 transition-colors duration-300" href="#">Início</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Produtos</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Categorias</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Novidades</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Promoções</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Sobre</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contato</a>
+</nav>
+<div class="hidden md:flex items-center space-x-6">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary-container transition-colors duration-300" data-icon="person">person</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary-container transition-colors duration-300" data-icon="search">search</span>
+</div>
+<button class="bg-[#0D0D0D] text-on-primary px-6 py-3 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 scale-95 hover:scale-100">
+                    Orçamento
+                </button>
+<button class="border border-[#0D0D0D] text-[#0D0D0D] px-6 py-3 rounded-DEFAULT font-label-md text-label-md hover:border-primary-container hover:text-primary-container transition-colors duration-300 scale-95 hover:scale-100">
+                    WhatsApp
+                </button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/30 z-10"></div>
+<img alt="Armarinho Premium Hero" class="w-full h-full object-cover object-center" data-alt="A meticulously arranged flat lay of premium sewing supplies, vibrant silk spools, golden needles, and luxurious velvet fabric. Shot from directly above with soft, natural studio lighting. High-end luxury retail aesthetic. Minimalist composition with ample negative space to serve as a hero background. Deep blacks and pristine whites with intense accents of rich reds and shimmering golds. Emotional tone is one of creative calm and sophisticated craftmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo6yQBpe_irbJ6G5WGdwZUX3yKDqHMbnPHbEybSA12YyhiqSitBHtGk-cV-nOLXITTf99rqYZp3jg1JWc6g1ZaUEuCvBuWYX61ED7yS05OZwnTQZ6GNDgflNdiX4pIytH1q3OhMiVdebLbhwNmG_o8ewmxpue40ZrYwdtwrkbGXRHqIzLyBE25XtjN0PLELS1mG_NpB0U5UKlwRE2f4OGesiuUN3k9c5r2muZEVZnKbEFFtgY_esDA"/>
+</div>
+<div class="relative z-20 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6 drop-shadow-lg">A Essência do Seu Artesanato</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-2xl font-light">Materiais selecionados para transformar suas ideias em obras de arte. Descubra a qualidade premium em cada detalhe.</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-DEFAULT font-label-md text-label-md hover:bg-white hover:text-primary transition-all duration-300 shadow-lg">Conheça nossos produtos</button>
+<button class="border border-white text-white px-8 py-4 rounded-DEFAULT font-label-md text-label-md hover:bg-white/10 transition-all duration-300">Solicitar orçamento</button>
+</div>
+</div>
+</section>
+<!-- Categories Grid -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Nossas Categorias</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Explore nossa vasta seleção organizada para facilitar sua busca pela perfeição.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Category Item 1 -->
+<div class="group relative overflow-hidden bg-surface-container-low cursor-pointer shadow-[0px_10px_30px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2">
+<div class="aspect-[4/3] w-full overflow-hidden">
+<img alt="Linhas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up shot of tightly wound spools of premium silk thread in a gradient of earthy tones and soft pastels. The lighting is soft and directional, highlighting the sheen of the silk. High-end luxury retail aesthetic. Minimalist composition. Deep blacks and pristine whites with intense accents of the thread colors. The mood is serene yet sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXMSDe5TaWssp1QYFlnJJICqQdLQLZmsxeuL5x8RU2JXWQIbkfEinm2_IX-5nG5k0HcYk-azrQWibLdEToGS4UNVx0m3Nm-Q8l-AxWpab-thifNzZI6btITs6equJqUQd8covgOJd9BVLHlQgALL32OdvlrzfnegTZQik6l0rHIyMR_xKwhvewV2qg0jrwbAGKkyngjy0aX4KweVKNsQIwQLGNcvY_EIgjxpSp0gU68mY97J2riYuU"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-white drop-shadow-md">Linhas</h3>
+<p class="font-caption text-caption text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">1.240 produtos</p>
+</div>
+<span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">arrow_forward</span>
+</div>
+</div>
+<!-- Category Item 2 -->
+<div class="group relative overflow-hidden bg-surface-container-low cursor-pointer shadow-[0px_10px_30px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2">
+<div class="aspect-[4/3] w-full overflow-hidden">
+<img alt="Lãs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Soft, luxurious balls of chunky merino wool stacked elegantly on a clean white surface. Soft natural lighting emphasizes the texture and warmth of the wool. High-end luxury retail aesthetic. Minimalist composition. Deep blacks and pristine whites with intense accents of the wool colors. The mood is serene and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOWEaMc78uZIJl9xoInK6E3pzv0rzqiEReCdr1VOC1PR5VI0aL19jRwlTnpdl2GcwEYAp4SiP4bnfHRC_StBKbDdXoEEBirMj144jUwUpug8EVipK6XKlwzk44zMGx7ZzcSol7RPyqm3INo0Bc4wvKdMrkn-JDgGB0rmlQIpXhKKG5YekzC1QD2WewRxwa0FlpIzhJ0lh0y2u7Ayc1PSFs7KizW_tUkJOCsImgMfwuY9AO6INxTUbZ"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-white drop-shadow-md">Lãs</h3>
+<p class="font-caption text-caption text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">850 produtos</p>
+</div>
+<span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">arrow_forward</span>
+</div>
+</div>
+<!-- Category Item 3 -->
+<div class="group relative overflow-hidden bg-surface-container-low cursor-pointer shadow-[0px_10px_30px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2">
+<div class="aspect-[4/3] w-full overflow-hidden">
+<img alt="Tecidos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Rolls of premium organic cotton and linen fabrics arranged vertically, showing their textured edges. Elegant, minimalist studio setting with soft diffused lighting. High-end luxury retail aesthetic. Deep blacks and pristine whites with intense accents of the fabric colors. The mood is serene and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbM2prLKRY_p15bvSC6aIwMsJINtTmnxFhBhJ2cLSHBlxx_CXmLsuYAbrDGjNvXxS64HntSO7qHV8HJDqpZ2Lzrre3YqriRFgVNnnWDHTzBOsmn9CfPEDmUd_vpqIRe1uLKPDJN6IMLz2kC-MZXdu7UBu8n4Zwf-3vrS9K2Sp--f8yTZtNJTO6QidnxFEzJNb4ai8v0aBa9vlTuq3plYaLb03lNQwHH0fQ30CsCGaUd19yK_H49VMT"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-white drop-shadow-md">Tecidos</h3>
+<p class="font-caption text-caption text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">3.400 produtos</p>
+</div>
+<span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest w-full pt-16 pb-8 px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto mb-16">
+<div>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Armarinho</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A essência do seu artesanato com materiais premium e atendimento especializado.</p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer" data-icon="facebook">face_nod</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer" data-icon="camera_alt">camera_alt</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-6">Contato</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Address</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Phone</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Email</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">WhatsApp</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-6">Explore</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Quick Links</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Opening Hours</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Interactive Map</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-6">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Receba novidades e ofertas exclusivas.</p>
+<div class="flex flex-col space-y-4">
+<input class="bg-transparent border-b border-secondary focus:border-primary-container outline-none py-2 font-body-md text-body-md text-on-background transition-colors" placeholder="Seu e-mail" type="email"/>
+<button class="bg-[#0D0D0D] text-white px-6 py-3 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 w-fit">Assinar</button>
+</div>
+</div>
+</div>
+<div class="border-t border-secondary-fixed-dim pt-8 text-center max-w-container-max mx-auto">
+<p class="font-caption text-caption text-on-surface-variant">© 2024 Armarinho Premium. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

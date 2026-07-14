@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Promoções - Lumina Craft</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#775a03",
+                        "on-secondary-container": "#656464",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-fixed": "#ffdf99",
+                        "on-surface-variant": "#4d4637",
+                        "tertiary": "#5d5f5f",
+                        "inverse-on-surface": "#f0f0f2",
+                        "surface-container-highest": "#e2e2e4",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#3c3e3e",
+                        "tertiary-container": "#a8a9a9",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#d0c5b2",
+                        "primary-fixed-dim": "#e8c267",
+                        "surface-variant": "#e2e2e4",
+                        "surface-tint": "#775a03",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f5",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "secondary-container": "#e5e2e1",
+                        "on-primary-fixed": "#251a00",
+                        "surface-container": "#eeeef0",
+                        "inverse-surface": "#2f3132",
+                        "secondary": "#5f5e5e",
+                        "on-background": "#1a1c1d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-high": "#e8e8ea",
+                        "on-surface": "#1a1c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#7f7666",
+                        "surface": "#f9f9fb",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-primary-container": "#4f3a00",
+                        "inverse-primary": "#e8c267",
+                        "background": "#f9f9fb",
+                        "primary-container": "#c8a44d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-40">
+<div class="flex justify-between items-center px-margin-mobile h-20 w-full">
+<button class="text-primary hover:text-primary-container transition-colors scale-95 active:scale-90 p-2 -ml-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest text-center flex-1">
+                LUMINA CRAFT
+            </h1>
+<button class="text-primary hover:text-primary-container transition-colors scale-95 active:scale-90 p-2 -mr-2 rounded-full flex items-center justify-center relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-margin-mobile py-8 md:hidden">
+<div class="mb-8">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">Ofertas Exclusivas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Seleção especial de materiais premium com condições limitadas.</p>
+</div>
+<!-- Promo Feed -->
+<div class="flex flex-col gap-6">
+<!-- Promo Item 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden relative" style="box-shadow: 0px 10px 30px rgba(0,0,0,0.04);">
+<div class="relative h-48 w-full bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph of luxurious silk threads in vibrant, deep jewel tones like emerald and sapphire, neatly spooled and arranged symmetrically on a pristine white marble surface. Soft, diffused lighting highlights the lustrous sheen of the silk, emphasizing the premium quality and intricate texture. The overall mood is elegant, creative, and refined, aligning with a high-end craft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe4CdIilLJKI2ah1jF-ssM8NZPdFk0Yh9UewKnFtk8GSm0dzQ_Itw1ry5expagRvMtRHZwHm86PI2PkqyZDODkAI1Ih9Vwix2SP8KB5toc_kE_OLuRJYVrpodpuEJ-w4KidW5a0Y11AUANHdtgBUm7CnbgKWAsQTSKhgvpzR3lcCQubO4_Ey5TaG8VREEoproztJGBA9nd7Pu-0Vr_B9fbQ21q1nRA_NzoXbairVoPv8glwxqvX_Bb"/>
+<!-- Golden Tag -->
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">
+                        -30% OFF
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-md text-label-md text-primary block mb-1">FIOS DE SEDA</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold">Coleção Imperial - Tons Frios</h3>
+</div>
+</div>
+<div class="flex items-end gap-3 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">R$ 189,00</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through mb-1">R$ 270,00</span>
+</div>
+<button class="mt-2 w-full bg-[#0D0D0D] hover:bg-primary-container text-on-primary transition-colors py-3 rounded-DEFAULT font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2">
+                        Ver Oferta
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Promo Item 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden relative" style="box-shadow: 0px 10px 30px rgba(0,0,0,0.04);">
+<div class="relative h-48 w-full bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="An overhead flat-lay shot of a premium knitting set featuring intricately carved wooden needles, a pair of sharp metallic scissors, and a skein of thick, natural merino wool in soft cream. The items are arranged on a very light, soft gray background with generous negative space. The lighting is bright and even, creating a clean, modern, and high-end retail look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKMw9hdfQ6GzktQ9rm23Awtsm6PfQGOnvV1yrAUdo20dZHT9cT5h8SJ5AiGFxvk87Ebm41B7RxtMYbWV49DGyG-Nn7JkGuTdcrquzgwvdZnZnBMEp2tPuzMygMO1YuLGA9GjRRASnoAPg9fnarKmU3tpWZgcX2nD0VNGt7wRQUBXKmAI5JtxuSdLSMpIh6ZNPO4IMzgqJ9BAR-Sd3bjFrVs2AS64vsXYpIx9AOINhJXuXzJ_ZuJ5eR"/>
+<!-- Golden Tag -->
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">
+                        ÚLTIMAS PEÇAS
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-md text-label-md text-primary block mb-1">FERRAMENTAS</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold">Kit Agulhas Bambu Artesanal</h3>
+</div>
+</div>
+<div class="flex items-end gap-3 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">R$ 345,00</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through mb-1">R$ 410,00</span>
+</div>
+<button class="mt-2 w-full bg-[#0D0D0D] hover:bg-primary-container text-on-primary transition-colors py-3 rounded-DEFAULT font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2">
+                        Ver Oferta
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Promo Item 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden relative" style="box-shadow: 0px 10px 30px rgba(0,0,0,0.04);">
+<div class="relative h-48 w-full bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A macro photograph of delicate metallic gold threads woven into a sheer, pale fabric. The focus is incredibly sharp on the intersection of the threads, blurring out beautifully towards the edges. The scene is lit to accentuate the sparkle and texture of the gold, conveying a sense of extreme luxury and meticulous craftsmanship suitable for haute couture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiwMDRn8bShtnG7WLVlFZHgkGLYbNoQDEeJe8g1qRezzBQjg8uiSwJCDiOqiVeF3fQf4Xoxuvtb3Lpfl2tcTv0_xdiaxK88pKoBBtIkznK6dz2ShKcjOcD8WVhM8q0ufFJ01niKrnbymo7W_iFtWQP7zyBv5R8_X5QlMI8rkXg73GYq_nw46kqOGV1CHSrVf4JnDTfweekI70H0CIxuO71vxyw_5wMyz6m7LN1pJc-owdBkFajGnuA"/>
+<!-- Golden Tag -->
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">
+                        LANÇAMENTO -20%
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-md text-label-md text-primary block mb-1">TECIDOS</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold">Linho Dourado Milão (Metro)</h3>
+</div>
+</div>
+<div class="flex items-end gap-3 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">R$ 112,00</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through mb-1">R$ 140,00</span>
+</div>
+<button class="mt-2 w-full bg-[#0D0D0D] hover:bg-primary-container text-on-primary transition-colors py-3 rounded-DEFAULT font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2">
+                        Ver Oferta
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar would normally go here, but omitted as per 'Task-Focused' exception in the prompt if we consider "Promotions" a specific dead-end filter, though it could be a top-level. Given it's a mobile view, we'll keep it clean as requested for a promotional feed. -->
+</body></html>

@@ -1,0 +1,270 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ---------------------------------------------------------
+// Auth.js (NextAuth) Models
+// ---------------------------------------------------------
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          Role      @default(USER)
+  accounts      Account[]
+  sessions      Session[]
+  logs          Log[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([email])
+  @@index([role])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+enum Role {
+  USER
+  ADMIN
+  MANAGER
+}
+
+// ---------------------------------------------------------
+// E-commerce & Institution Models
+// ---------------------------------------------------------
+
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  document    String?  // CNPJ/CPF
+  email       String?
+  phone       String?
+  whatsapp    String?
+  address     String?
+  city        String?
+  state       String?
+  zipCode     String?
+  aboutText   String?  @db.Text
+  logoUrl     String?
+  faviconUrl  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?    @db.Text
+  imageId     String?
+  imageUrl    String?
+  parentId    String?
+  parent      Category?  @relation("CategoryToCategory", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryToCategory")
+  products    Product[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  // Soft Delete
+  deletedAt   DateTime?
+
+  @@index([parentId])
+  @@index([slug])
+  @@index([createdAt])
+  @@index([deletedAt])
+}
+
+model Product {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?    @db.Text
+  details     String?    @db.Text
+  price       Decimal    @db.Decimal(10, 2)
+  oldPrice    Decimal?   @db.Decimal(10, 2)
+  sku         String?    @unique
+  stock       Int        @default(0)
+  isActive    Boolean    @default(true)
+  isFeatured  Boolean    @default(false)
+  categoryId  String
+  category    Category   @relation(fields: [categoryId], references: [id])
+  images      Image[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  // Soft Delete
+  deletedAt   DateTime?
+
+  @@index([categoryId])
+  @@index([isActive])
+  @@index([isFeatured])
+  @@index([createdAt])
+  @@index([slug])
+  @@index([deletedAt])
+}
+
+model Image {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  galleryId String?
+  gallery   Gallery? @relation(fields: [galleryId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@index([galleryId])
+}
+
+model Banner {
+  id        String   @id @default(cuid())
+  title     String?
+  subtitle  String?
+  imageUrl  String
+  linkUrl   String?
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // Soft Delete
+  deletedAt DateTime?
+
+  @@index([isActive, order])
+  @@index([deletedAt])
+}
+
+model Lead {
+  id        String     @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  source    String?
+  status    LeadStatus @default(NEW)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  // Soft Delete
+  deletedAt DateTime?
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+  @@index([deletedAt])
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  CONVERTED
+  LOST
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  content   String   @db.Text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([isRead])
+  @@index([createdAt])
+}
+
+model Testimonial {
+  id         String   @id @default(cuid())
+  name       String
+  role       String?
+  content    String   @db.Text
+  avatarUrl  String?
+  rating     Int      @default(5) @db.SmallInt
+  isApproved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  // Soft Delete
+  deletedAt  DateTime?
+
+  @@index([isApproved])
+  @@index([createdAt])
+  @@index([deletedAt])
+}
+
+model Gallery {
+  id        String   @id @default(cuid())
+  title     String?
+  images    Image[]
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+}
+
+model SeoSettings {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  keywords    String?
+  ogImage     String?
+  twitterCard String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Log {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String
+  entity    String
+  entityId  String?
+  details   String?  @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([entity])
+  @@index([createdAt])
+}

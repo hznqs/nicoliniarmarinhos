@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Armarinho Premium - Detalhes do Produto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#4f3a00",
+                        "inverse-primary": "#e8c267",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#f3f3f5",
+                        "on-primary-fixed": "#251a00",
+                        "tertiary-container": "#a8a9a9",
+                        "outline-variant": "#d0c5b2",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "surface-dim": "#d9dadc",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#3c3e3e",
+                        "on-background": "#1a1c1d",
+                        "primary": "#775a03",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#775a03",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "primary-container": "#c8a44d",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#656464",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3132",
+                        "surface-variant": "#e2e2e4",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface": "#f9f9fb",
+                        "secondary": "#5f5e5e",
+                        "on-surface-variant": "#4d4637",
+                        "surface-container": "#eeeef0",
+                        "secondary-container": "#e5e2e1",
+                        "surface-container-highest": "#e2e2e4",
+                        "tertiary": "#5d5f5f",
+                        "outline": "#7f7666",
+                        "on-surface": "#1a1c1d",
+                        "primary-fixed": "#ffdf99",
+                        "primary-fixed-dim": "#e8c267",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9fb",
+                        "inverse-on-surface": "#f0f0f2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#474646"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Ambient Hover Effects */
+        .ambient-hover {
+            transition: all 0.3s ease;
+        }
+        .ambient-hover:hover {
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface shadow-sm docked full-width top-0 z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto h-20">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary scale-95 duration-200" href="#">
+                Armarinho
+            </a>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Início</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Produtos</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Categorias</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Novidades</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Promoções</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Sobre</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300" href="#">Contato</a>
+</nav>
+<div class="hidden md:flex gap-unit items-center">
+<button class="p-2 text-on-surface hover:text-primary transition-colors" data-icon="search">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-on-surface hover:text-primary transition-colors" data-icon="person">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="bg-[#0D0D0D] text-on-primary font-label-md text-label-md px-6 py-3 rounded hover:bg-primary-container transition-colors duration-300 ml-4">
+                    Orçamento
+                </button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-24">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="flex items-center text-secondary font-caption text-caption mb-12">
+<a class="hover:text-primary transition-colors" href="#">Início</a>
+<span class="material-symbols-outlined text-[16px] mx-2">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Produtos</a>
+<span class="material-symbols-outlined text-[16px] mx-2">chevron_right</span>
+<span class="text-on-surface">Fio de Seda Premium</span>
+</nav>
+<!-- Product Hero Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-24">
+<!-- Gallery (Left, 7 cols) -->
+<div class="md:col-span-7 flex flex-col md:flex-row gap-gutter">
+<!-- Thumbnail Strip -->
+<div class="flex flex-row md:flex-col gap-4 order-2 md:order-1 overflow-x-auto md:overflow-visible pb-4 md:pb-0">
+<button class="w-20 h-20 bg-surface-container-low rounded flex-shrink-0 border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up macro photography of a shiny, golden premium silk thread spool, studio lighting, highly detailed texture, pure white minimalist background, crisp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMCrpYuo58ZISfvLPSd6nVth0d8RXiCbQ-WBsJM52hceySa9bvZ0Uk1wBiJ0DXScqJfxznVB1Ctx-ukNX1yBdc6Y9Z0Etr0j-5wXDfEPRSk3JNcCKylpF17kmdiyu-kzwEaW8lVQlJ8VzZjhjC6UfyCgy5Z_EsNECItbTRCPF1SXWu0FuVPd-WPteZAtL5VE9fIHvy7p_hHZx7CJUB2bgnNV3MpteUJH1lCX5XWIa6xhPZ1MHDNZU"/>
+</button>
+<button class="w-20 h-20 bg-surface-container-low rounded flex-shrink-0 border-2 border-transparent hover:border-outline-variant transition-colors overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Multiple spools of golden premium silk thread arranged elegantly on a clean white surface, soft shadows, high-end commercial product photography, minimalist styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxhisTnuSwu71Zt3LBf4l3qswvchNV5ELaH_ks-YLOouEtzEHkJ-Ru-Am6N8qf1s5UUR2xXql9RIUDMvi2eVSXcWHjITigpadk-gXqXBqjs8G5lRdnleoLAriT4geawui3ecQVa4zuyU3753NScNZUn7nz1qG1RVC5j1Zylq8GU4yCDvfEpnpQazNvShq1qF9uqtAeedgDfid_YO4cQNI5x6xmDSXbOja7gQccRujiHE5GQciMZaW7"/>
+</button>
+<button class="w-20 h-20 bg-surface-container-low rounded flex-shrink-0 border-2 border-transparent hover:border-outline-variant transition-colors overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A delicate golden silk thread unspooled slightly, resting on a pristine white marble surface, soft natural lighting highlighting the sheen of the material, luxury craft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAflVg24_vaeDOSty7Pr5vSmMhGI3OgiwJ7w5wCHHTdLVq6CFeineMVxt4hoyYN4HYnNg2RwWZorYALqbF4jYxnbQUDeEwxNiqbjE_ggy3wng7XZFNqrqszCGFoJY5A-yv2jGcA9FrMyW2SUgb_8owabOXiRqMUrWyhvWtfZ5yYNs313PhpFBOF0Ij3uL1dQdXKf8LjQDZh_8hSU1poR6SJtZgYxoLhk40IoR-4svzfqc2mbLdvGQlB"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="flex-1 bg-surface-container-low rounded-lg aspect-square order-1 md:order-2 overflow-hidden relative group cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Large detailed product shot of a premium golden silk thread spool standing upright in a minimalist white studio environment. The lighting is soft and ambient, highlighting the luxurious texture and shine of the silk material. High-end editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHRsOUfsNmcwkV_zIjXo79XT9zcwyUPHHR1Y8XffP1UHoPgycXx78mQafFFf-j4KW-L7xoHvtSGch19EhFJrkLoWZtUM4KtHX-fRGb2oCdjUcJiuAdFXFeXTm0AfJ01KCBPADSvXX7cuDiB5VH5LhKqaBOC5Jtv0Dp22y6MepBrGGhS4NALkgXMJ9-yRvEtu9LaJtW2KYFaiVA_kH-TTsqKgJQWoovKken7tOpToAf5lrzwjtvv81q"/>
+<button class="absolute top-4 right-4 p-3 bg-surface/80 backdrop-blur rounded-full text-on-surface hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Product Info (Right, 5 cols) -->
+<div class="md:col-span-5 flex flex-col pt-4 md:pt-12 pl-0 md:pl-12">
+<!-- Badges -->
+<div class="flex gap-2 mb-6">
+<span class="bg-surface-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-xl">Fios Premium</span>
+<span class="bg-surface-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-xl">Lançamento</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Fio de Seda Ouro 24k</h1>
+<div class="flex items-center mb-8 gap-4">
+<span class="font-headline-sm text-headline-sm text-primary-container">R$ 189,90</span>
+<span class="text-secondary font-body-md text-body-md line-through">R$ 249,90</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                    Produzido com a mais pura seda orgânica, este fio oferece um brilho incomparável e resistência superior. Ideal para bordados de alta costura, joalheria artesanal e acabamentos de luxo.
+                </p>
+<!-- Technical Features -->
+<ul class="space-y-4 mb-12">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-outline">straighten</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Comprimento</p>
+<p class="font-caption text-caption text-secondary">Rolo com 50 metros</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-outline">water_drop</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Composição</p>
+<p class="font-caption text-caption text-secondary">100% Seda Orgânica</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-outline">palette</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Cores Disponíveis</p>
+<div class="flex gap-2 mt-2">
+<button class="w-6 h-6 rounded-full bg-[#D4AF37] border-2 border-primary ring-2 ring-transparent hover:ring-outline-variant"></button>
+<button class="w-6 h-6 rounded-full bg-[#C0C0C0] border border-outline-variant hover:border-primary"></button>
+<button class="w-6 h-6 rounded-full bg-[#CD7F32] border border-outline-variant hover:border-primary"></button>
+</div>
+</div>
+</li>
+</ul>
+<!-- Actions -->
+<div class="flex flex-col gap-4 mt-auto">
+<button class="w-full bg-[#0D0D0D] text-on-primary font-label-md text-label-md py-4 rounded hover:bg-primary-container transition-colors duration-300 flex items-center justify-center gap-2">
+                        Solicitar Orçamento
+                    </button>
+<button class="w-full bg-transparent border border-[#0D0D0D] text-on-surface font-label-md text-label-md py-4 rounded hover:bg-surface-container-low transition-colors duration-300 flex items-center justify-center gap-2">
+                        WhatsApp
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<h2 class="font-display-lg text-[24px] text-primary mb-6">Armarinho</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Armarinho Premium. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Address</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Phone</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Email</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">WhatsApp</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Facebook</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Opening Hours</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Interactive Map</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Quick Links</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Newsletter</a>
+</div>
+</div>
+</footer>
+</body></html>

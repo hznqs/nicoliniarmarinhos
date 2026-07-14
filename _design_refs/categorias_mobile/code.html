@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Categorias - Lumina Craft</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#775a03",
+                        "on-secondary-container": "#656464",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-fixed": "#ffdf99",
+                        "on-surface-variant": "#4d4637",
+                        "tertiary": "#5d5f5f",
+                        "inverse-on-surface": "#f0f0f2",
+                        "surface-container-highest": "#e2e2e4",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#3c3e3e",
+                        "tertiary-container": "#a8a9a9",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#d0c5b2",
+                        "primary-fixed-dim": "#e8c267",
+                        "surface-variant": "#e2e2e4",
+                        "surface-tint": "#775a03",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f5",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "secondary-container": "#e5e2e1",
+                        "on-primary-fixed": "#251a00",
+                        "surface-container": "#eeeef0",
+                        "inverse-surface": "#2f3132",
+                        "secondary": "#5f5e5e",
+                        "on-background": "#1a1c1d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-high": "#e8e8ea",
+                        "on-surface": "#1a1c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#7f7666",
+                        "surface": "#f9f9fb",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-primary-container": "#4f3a00",
+                        "inverse-primary": "#e8c267",
+                        "background": "#f9f9fb",
+                        "primary-container": "#c8a44d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="bg-surface dark:bg-inverse-surface w-full top-0 sticky shadow-sm z-40">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full">
+<button class="text-primary dark:text-primary-fixed-dim hover:text-primary-container transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface uppercase tracking-widest text-center flex-1">
+                LUMINA CRAFT
+            </div>
+<button class="text-primary dark:text-primary-fixed-dim hover:text-primary-container transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto w-full mb-20 md:mb-0">
+<div class="mb-8 text-center md:text-left">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-2">Categorias de Artesanato</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Explore materiais de alta qualidade para o seu próximo projeto.</p>
+</div>
+<!-- Search Bar -->
+<div class="mb-8 relative w-full md:w-96 mx-auto md:mx-0">
+<span class="material-symbols-outlined absolute left-0 bottom-2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 pl-8 pb-2 font-body-md text-body-md text-on-surface placeholder-on-surface-variant transition-colors" placeholder="Buscar materiais..." type="text"/>
+</div>
+<!-- Category Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Category Card 1 -->
+<a class="group block relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 bg-surface-container-lowest" href="#">
+<div class="aspect-square relative overflow-hidden p-4">
+<div class="w-full h-full rounded-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up photograph of luxurious, shimmering gold and silk yarns neatly arranged in a wooden bowl. The lighting is soft and studio-quality, highlighting the rich textures and premium sheen of the materials against a minimal, light-mode background. The mood is elegant and highly tactile, emphasizing high-end craft supplies." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxjL6v_MdOXbZeg1nUdMp-MCwxpTe4vSqeUTfIOpwpIISQ5RniXteopWj8si_dpLKbWSqjrC_qtlqu04dw1_j84nV5jwmGUq_AFa1l7NyJWuj0AXUGDDIAY-tHmDIcGDDLnzzMZQo6ZOeymdtmFzlFJsIRlzu63hVh3vir2SBpJ85jR_IgHfvsDhpMr3EkZGkJ1cST9L3U5pNTX_BoYNkBgZciXG3ago8z5dn2Me9Ipzu67gSV1rXf"/>
+</div>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-label-md text-label-md text-primary mb-1 uppercase">Fios &amp; Linhas</h3>
+<p class="font-body-md text-body-md text-on-background">Seda, Algodão e Ouro</p>
+</div>
+</a>
+<!-- Category Card 2 -->
+<a class="group block relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 bg-surface-container-lowest" href="#">
+<div class="aspect-square relative overflow-hidden p-4">
+<div class="w-full h-full rounded-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro shot of intricately designed metallic buttons and delicate lace trims resting on a pristine white marble surface. High-key lighting casts soft shadows, creating a bright, minimalist aesthetic. The focus is on the fine details and craftsmanship of the sewing accessories, conveying a sense of premium luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu2SnNyeVBymwxVu2DV8jDlLenew7EcnPEkue0fE1b25jXIof_jZQLhaxajveYbwy2OvDvJTnlIsDltJepToiISCc6NHqzNZ-OZHD-Y-ybDwVXSAP5o71G2F9upHLH4KtfMre1G0zJYEDQOk71W3c7EEBcG0Mz8pEFMyjUlIcBoG6hX_95FhDqUd1ZdjQbvv0qva3oKJZ4eeaUYkl-BMuAv95-W3fomy8XvmdZPs5FAVAnDexBK5Sh"/>
+</div>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-label-md text-label-md text-primary mb-1 uppercase">Armarinho</h3>
+<p class="font-body-md text-body-md text-on-background">Botões e Acabamentos</p>
+</div>
+</a>
+<!-- Category Card 3 -->
+<a class="group block relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 bg-surface-container-lowest" href="#">
+<div class="aspect-square relative overflow-hidden p-4">
+<div class="w-full h-full rounded-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully composed flat lay of premium knitting needles and crochet hooks, made of polished wood and brushed brass, arranged symmetrically on a clean, light gray surface. The studio lighting is soft and even, highlighting the smooth textures and elegant design of the tools. The mood is calm and creative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKMAHENSX_KTatUm0tP9ZPgIk1i3Bgo83x5OffNq7zbBPAES0Rnzc16bSUqIaoGHz9ZNSR04X5fbo0wUJyQneWmp4_U4mRJbOWwBs9Rnl-Ej8CrIXVRXxCgfqSATiYEV1izrFdcszzmMsIMNXhLA0re6xxfzhyo9JvqfPJqwtl8Fj1hXFbABShBwkXx1vHtrsmnK8KBDmXLe93y1WieaESLcALwe2gE6-1bhFSE2pmVsV4ykujtAbG"/>
+</div>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-label-md text-label-md text-primary mb-1 uppercase">Agulhas</h3>
+<p class="font-body-md text-body-md text-on-background">Tricô e Crochê</p>
+</div>
+</a>
+<!-- Category Card 4 -->
+<a class="group block relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 bg-surface-container-lowest" href="#">
+<div class="aspect-square relative overflow-hidden p-4">
+<div class="w-full h-full rounded-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Rolls of luxurious, organically dyed fabrics in subtle, earthy tones stacked neatly. The fabrics feature intricate weaves and premium textures. The scene is brightly lit with natural, diffused light against a white backdrop, emphasizing the tactile quality and sophisticated minimalism of the high-end textiles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXb2tLnwsKcAr5IxYIRDVzK1MdxDOzEJ2AUJKEGfzVl63Ysn0v_-BqUnC6NFhtXAZ6ufZpvaa2WAkbC10xoFz5zcUqWQ2jeLZTqfgBCn1QQudolKfV2F3cAvTqfnLLMDPsv9YWdyBZ25m3A6y9p79xqFukPeUdkA6YFSZqumvN6zRywv6JVboz-SB9Vlnvi32bArRS93nsgwlEzIgIruO7co1YKz_4PBiixYrHUhazOVoC7acsc22k"/>
+</div>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-label-md text-label-md text-primary mb-1 uppercase">Tecidos</h3>
+<p class="font-body-md text-body-md text-on-background">Orgânicos e Exclusivos</p>
+</div>
+</a>
+<!-- Category Card 5 -->
+<a class="group block relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 bg-surface-container-lowest" href="#">
+<div class="aspect-square relative overflow-hidden p-4">
+<div class="w-full h-full rounded-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed view of fine embroidery threads in a vibrant yet sophisticated color palette, alongside a delicate pair of vintage scissors. The items are placed on a soft, light-colored linen cloth. The lighting is crisp and bright, enhancing the high-end, artistic feel of the craft materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEq5f0E-qhfULtmYpd8Hcsz9rSlcN6OorbIj9riIti2PChtfud5HhLrrb9nYoX3xWSBeIJjRRgaxmSIptFG7n71tWWUi5Q_rncl4f7zWk6SbIwQ4usPcTdQwnRqgSGvfaSxkYfHagkd0nWr3pqNMT1GcsIzJCA9NPIp_4JK4q8Gb7Cl7f7G15k3J3YOTEZ7VeNmYFq0ANf28OeDcCtFYL1hpd1FQLOiebX2EObdA2UFy59fHQ3S8i4"/>
+</div>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-label-md text-label-md text-primary mb-1 uppercase">Bordado</h3>
+<p class="font-body-md text-body-md text-on-background">Kits e Bastidores</p>
+</div>
+</a>
+<!-- Category Card 6 -->
+<a class="group block relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 bg-surface-container-lowest" href="#">
+<div class="aspect-square relative overflow-hidden p-4">
+<div class="w-full h-full rounded-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A curated selection of high-quality craft tools, including measuring tapes and fine-point pens, arranged neatly on a minimalist white desk. The aesthetic is clean, modern, and highly organized, reflecting a premium workspace for artists and crafters. Soft, ambient lighting creates a serene atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAER4wRaB2oc-zs1Dy7Rt3yBcsLvEF_wniH8bFi3HSH1eAlUgdYS2lMNSMjtyx8FQwE5besigIqveSBMAQ3NjhgJZ4mZMZK_fvYO67Vu9fKRNC89OXfowWxCcqRz34Fsz5X5YIRkpJKhFYbcFa3BrPC9LRhO-HLV1Oey1SNmlEyD26o9xzOyw_01CB2CFLb4NWtgP0xZtmnrrauZMCKkaOa3DBCGg6Vv29-N9NAWgmBfl_6M8j-YOaP"/>
+</div>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-label-md text-label-md text-primary mb-1 uppercase">Acessórios</h3>
+<p class="font-body-md text-body-md text-on-background">Ferramentas de Apoio</p>
+</div>
+</a>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) - Synthesized since it's a mobile category page and not a generic list -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t-0 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] z-40 pb-safe">
+<ul class="flex justify-around items-center h-16">
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center h-full text-on-surface-variant hover:text-primary transition-colors py-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-caption text-caption mt-1">Início</span>
+</a>
+</li>
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center h-full text-primary font-bold py-2" href="#">
+<span class="material-symbols-outlined filled-icon" data-icon="category">category</span>
+<span class="font-caption text-caption mt-1">Categorias</span>
+</a>
+</li>
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center h-full text-on-surface-variant hover:text-primary transition-colors py-2" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-caption text-caption mt-1">Desejos</span>
+</a>
+</li>
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center h-full text-on-surface-variant hover:text-primary transition-colors py-2" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-caption text-caption mt-1">Perfil</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Footer from JSON (Desktop Only) -->
+<footer class="hidden md:grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 w-full max-w-container-max mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant mt-auto">
+<div class="col-span-1">
+<div class="font-headline-sm text-headline-sm text-on-surface mb-4">LUMINA CRAFT</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Lumina Armarinho de Luxo. Todos os direitos reservados.</p>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline decoration-primary underline-offset-4 opacity-100 hover:opacity-80 transition-all" href="#">Materiais Exclusivos</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline decoration-primary underline-offset-4 opacity-100 hover:opacity-80 transition-all" href="#">Nossa Curadoria</a>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline decoration-primary underline-offset-4 opacity-100 hover:opacity-80 transition-all" href="#">Atendimento</a>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline decoration-primary underline-offset-4 opacity-100 hover:opacity-80 transition-all" href="#">Termos de Uso</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline decoration-primary underline-offset-4 opacity-100 hover:opacity-80 transition-all" href="#">Privacidade</a>
+</div>
+</footer>
+</body></html>

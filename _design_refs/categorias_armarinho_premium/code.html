@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Armarinho Premium - Categorias</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#775a03",
+                        "on-secondary-container": "#656464",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary-fixed": "#ffdf99",
+                        "on-surface-variant": "#4d4637",
+                        "tertiary": "#5d5f5f",
+                        "inverse-on-surface": "#f0f0f2",
+                        "surface-container-highest": "#e2e2e4",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#3c3e3e",
+                        "tertiary-container": "#a8a9a9",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#d0c5b2",
+                        "primary-fixed-dim": "#e8c267",
+                        "surface-variant": "#e2e2e4",
+                        "surface-tint": "#775a03",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f5",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "secondary-container": "#e5e2e1",
+                        "on-primary-fixed": "#251a00",
+                        "surface-container": "#eeeef0",
+                        "inverse-surface": "#2f3132",
+                        "secondary": "#5f5e5e",
+                        "on-background": "#1a1c1d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-high": "#e8e8ea",
+                        "on-surface": "#1a1c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#7f7666",
+                        "surface": "#f9f9fb",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-primary-container": "#4f3a00",
+                        "inverse-primary": "#e8c267",
+                        "background": "#f9f9fb",
+                        "primary-container": "#c8a44d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #ffffff; color: #0D0D0D; }
+        .lux-card { transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .lux-card:hover { transform: translateY(-4px); box-shadow: 0px 20px 40px rgba(0,0,0,0.08); }
+        .img-zoom { transition: transform 0.8s ease; }
+        .lux-card:hover .img-zoom { transform: scale(1.05); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface dark:bg-inverse-surface docked full-width top-0 shadow-sm dark:shadow-none shadow-[0px_10px_30px_rgba(0,0,0,0.04)] z-50 sticky">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<a class="font-display-lg text-display-lg text-primary dark:text-inverse-primary tracking-tight" href="#">Armarinho</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Início</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Produtos</a>
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary pb-1" href="#">Categorias</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Novidades</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Promoções</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Sobre</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Contato</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<!-- Icon Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="person" class="text-primary dark:text-inverse-primary hover:text-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">person</span>
+</button>
+<button aria-label="search" class="text-primary dark:text-inverse-primary hover:text-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">search</span>
+</button>
+</div>
+<!-- Trailing Actions -->
+<div class="hidden lg:flex items-center gap-4">
+<a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors duration-300" href="#">WhatsApp</a>
+<button class="bg-on-background text-on-primary px-6 py-2 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container transition-colors duration-300">Orçamento</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-24">
+<!-- Page Header -->
+<div class="text-center mb-24 max-w-2xl mx-auto">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6">Nossas Categorias</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Explore nossa seleção curada de materiais de alta qualidade para seus projetos mais refinados. Do algodão mais suave às pedrarias mais raras.</p>
+</div>
+<!-- Categories Grid (Bento/Asymmetric Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[300px]">
+<!-- Category: Linhas (Large Span) -->
+<a class="lux-card group relative block md:col-span-8 row-span-2 overflow-hidden bg-surface-container-low rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]" href="#">
+<div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-black/10 transition-colors duration-500"></div>
+<img class="img-zoom absolute inset-0 w-full h-full object-cover" data-alt="A macro photography shot of premium, high-quality sewing threads in rich, earthy tones like deep gold, navy, and burgundy. The spools are arranged elegantly on a clean white marble surface. Soft, diffused, high-key lighting creates a luxurious, modern light-mode aesthetic, emphasizing the texture and subtle sheen of the threads. The mood is calm, creative, and highly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFDDU-3CdWuaYOoSSIbgCNbR9c2cUxXslWJ_rzKgMYnURL-cx9o8tmas260U6MPujaQZ0cX4KzQ0erHcFquB-yZZ6CW3211bTDjtyvJTnpR3fjfqDh8HlDsfi3sy2N6vmUWNJZUPrQ2tz6sTvH3aXUNlVzdZhRKNk9rGDErJAz6JtfLPpxAu1GOEL0_Xp50kesJTWLOg2OAMn3i9A69ChGAwkcVOcYqmF1gINZd3RUN2GEvwoloQbX"/>
+<div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+<div class="bg-surface/90 backdrop-blur-sm p-6 inline-block self-start rounded-DEFAULT max-w-sm">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block">Premium Collection</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Linhas &amp; Fios</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">1,240 Produtos</p>
+</div>
+</div>
+</a>
+<!-- Category: Tecidos (Tall) -->
+<a class="lux-card group relative block md:col-span-4 row-span-2 overflow-hidden bg-surface-container-low rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]" href="#">
+<div class="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+<img class="img-zoom absolute inset-0 w-full h-full object-cover" data-alt="A beautifully styled composition of folded luxury fabrics, including organic silk, fine linen, and premium cotton in subtle, muted pastel colors. The fabrics are stacked neatly against a pristine white background. Elegant, soft lighting highlights the intricate weaves and delicate drapes. The aesthetic is minimalist, sophisticated, and tailored for a high-end textile boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYgOe9_1uvrVoGI5xn3xxnQlQ6T6Yxt0ZooWG0P7yKy5W-yXQ-M3otZ82vZ4sKCSm0Ez1QU6zg1mnDvFqzk72QvPZAG2Fc5x28NpEUw1qOiVSZR3cRO8rxt5Vkh_o32rQ3d0a9jKOYLXVbtS_geuJtPh_FUglr4GRyM6Gxa1KVStHXfNDpAs1v9Pjlmt20H92Gnngre1GIn2h5jGDORg3lkGOcF8lXt3fTuxr8TcNh6IH7585yDZDQ"/>
+<div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+<div class="bg-surface/90 backdrop-blur-sm p-6 inline-block self-start rounded-DEFAULT w-full">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Tecidos Finos</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">850 Produtos</p>
+</div>
+</div>
+</a>
+<!-- Category: Lãs (Square) -->
+<a class="lux-card group relative block md:col-span-4 row-span-1 overflow-hidden bg-surface-container-low rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]" href="#">
+<div class="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+<img class="img-zoom absolute inset-0 w-full h-full object-cover" data-alt="Close-up of luxurious, chunky merino wool skeins in creamy white and soft beige tones, resting in a woven artisan basket. The setting is clean, modern, and flooded with natural daylight, casting soft shadows. The overall feel is warm, tactile, and highly premium, fitting a minimalist craft design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjx9FBiRKr1I1pi-3vj1z8oLrhw0SOheiefCFSlixwDO3jmCTIV52W9uFRteATI2PNi4lYIb21h73yiSAuWDB83zB_v34clSC5L_RswK1GtocuZ50A05pdODRbw1IHTZMIzGKW10UT68LVzTThGq8w72XCNAYVkfZG9KqjUMoqKLVmkwWIr4RYALNGmyuW3xrtNHlfn4PCBrvQKXuQ5mA4IG62SYRWk9QEPNYrEUpH7H4Ot2CamZFr"/>
+<div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-center text-center">
+<div class="w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-primary drop-shadow-md mb-1">Lãs &amp; Tricô</h3>
+<p class="font-label-md text-label-md text-on-primary/90 drop-shadow-md">320 Produtos</p>
+</div>
+</div>
+</a>
+<!-- Category: Miçangas (Square) -->
+<a class="lux-card group relative block md:col-span-4 row-span-1 overflow-hidden bg-surface-container-low rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]" href="#">
+<div class="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+<img class="img-zoom absolute inset-0 w-full h-full object-cover" data-alt="A delicate arrangement of premium glass beads, pearls, and metallic findings sorted in minimalist acrylic trays on a light grey surface. The lighting is crisp and bright, reflecting off the sparkling surfaces of the beads, creating a sophisticated and organized visual. The aesthetic is clean, luxurious, and detail-oriented." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj4rl7IDkBDnJUYf5xi85BXmP2WpSWVHz0cJC7w0i12_PwjWk6cQnB3BuCL8X0nYpjmZq-_gztk9ibCwVA7H-XXv8hFL6kuYIhFvQ7BH2Ak6Jmoz79_QntoVtLWcFQ4HDeo7BJXreqqb9F-8I_OIL19c82hB33UnT7EnHDf0B2wfQqC4-d_hDqGvhM6gJh3c1O1GI3-MNSawn0iTQq5Y-Ehl4MaQBRljVUr5iovD0uz_lyWAEma_Tw"/>
+<div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-center text-center">
+<div class="w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-primary drop-shadow-md mb-1">Pedrarias</h3>
+<p class="font-label-md text-label-md text-on-primary/90 drop-shadow-md">540 Produtos</p>
+</div>
+</div>
+</a>
+<!-- Category: Feltro (Square) -->
+<a class="lux-card group relative block md:col-span-4 row-span-1 overflow-hidden bg-surface-container-low rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]" href="#">
+<div class="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+<img class="img-zoom absolute inset-0 w-full h-full object-cover" data-alt="Stacks of premium, pure wool felt sheets in a sophisticated gradient of cool tones: slate, ice blue, and charcoal. The texture is dense and matte. Shot from a high angle on a pure white background with soft, even lighting to emphasize the material quality without harsh shadows. Minimalist, elegant craft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgsDxEoLumKdO83AguR5VGP5AkZbNMEIEGogZfVukj2nv6Vt5L6Y7Qn60ZclSEb3ditw52wNrURgBhqldiDqFbXN9cYL5xAzAPvJKuPDOZraIni8g1VOwdNSaebEtYrvg-r75FnavuRKkq8OMinxhwG8-jt51KJsyD2x_Rnp5gFhsIghp7Slhd0kKj3dbHpoOMKQgmiuVtimsCvRCgSohd11wvwFM_rHPt_s3BHUKcbAAFKItr_aPA"/>
+<div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-center text-center">
+<div class="w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-primary drop-shadow-md mb-1">Feltros Especiais</h3>
+<p class="font-label-md text-label-md text-on-primary/90 drop-shadow-md">115 Produtos</p>
+</div>
+</div>
+</a>
+<!-- Category: Acessórios (Wide Span) -->
+<a class="lux-card group relative block md:col-span-12 row-span-1 overflow-hidden bg-surface-container-low rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)] mt-gutter" href="#">
+<div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-black/10 transition-colors duration-500"></div>
+<img class="img-zoom absolute inset-0 w-full h-full object-cover" data-alt="A curated flat lay of luxury crafting tools: a pair of gold-plated embroidery scissors, a sleek minimalist measuring tape, and high-end wooden knitting needles. The composition is highly organized with abundant negative space on a soft, light beige background. Bright, even lighting creates a serene, premium, and professional corporate-modern feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTX_rBCBluHvedOLzR5Tkr6OvXm5MPv9onYAoc6P4pvoXSlct9orKWfjWLDMuiZS-bjS-mPRYfSYQRM0VxwZA_l-o1xfX1R3TkJwyOyI4nGjalUe7v3b8mhk3MX-z5oMdzdDl24G04TXJVc_Wc3wgJX1Yt3ulr3sN1m-HQ6xtb4-ovIGVGPx8mp9NjdnyVDEhOvYSGKLn4E-At9cW-tXMT-cDYrRDMb1Cm2kAMuSLpjPfQO99Fwx5t"/>
+<div class="absolute inset-0 z-20 p-12 flex flex-row items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-primary mb-2 drop-shadow-md">Ferramentas &amp; Acessórios</h2>
+<p class="font-body-lg text-body-lg text-on-primary/90 drop-shadow-md max-w-lg">O equipamento perfeito para o acabamento impecável.</p>
+</div>
+<div class="hidden md:flex items-center gap-2 text-on-primary bg-primary/20 backdrop-blur-md px-6 py-3 rounded-full hover:bg-primary/40 transition-colors">
+<span class="font-label-md text-label-md tracking-wider uppercase">Explorar</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</a>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="col-span-1">
+<div class="font-display-lg text-display-lg text-primary dark:text-inverse-primary mb-6">Armarinho</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mb-6">A essência da criação em suas mãos. Materiais premium para artesãos exigentes.</p>
+<div class="font-body-md text-body-md text-on-surface-variant">© 2024 Armarinho Premium. All rights reserved.</div>
+</div>
+<!-- Quick Links -->
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest text-primary font-bold">Quick Links</h4>
+<ul class="space-y-4 flex flex-col font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Address</a></li>
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Phone</a></li>
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Email</a></li>
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">WhatsApp</a></li>
+</ul>
+</div>
+<!-- Social & Info -->
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest text-primary font-bold">Social</h4>
+<ul class="space-y-4 flex flex-col font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Instagram</a></li>
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Facebook</a></li>
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Opening Hours</a></li>
+<li><a class="hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Interactive Map</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest text-primary font-bold">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Receba novidades e inspirações exclusivas.</p>
+<form class="flex flex-col gap-4">
+<input class="w-full bg-transparent border-0 border-b border-on-surface-variant focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface placeholder:text-on-surface-variant/50 transition-colors" placeholder="Seu e-mail" type="email"/>
+<button class="bg-on-background text-on-primary px-6 py-2 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container transition-colors duration-300 self-start" type="submit">Assinar</button>
+</form>
+</div>
+</div>
+</footer>
+</body></html>
