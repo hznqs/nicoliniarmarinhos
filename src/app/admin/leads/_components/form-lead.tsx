@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/select"
 import { createLead, updateLead } from "@/server/actions/lead"
 import { formatPhone } from "@/lib/formatters"
-import { LeadStatus } from "@prisma/client"
 import { toast } from "sonner"
 
 const formSchema = z.object({
@@ -32,7 +31,7 @@ const formSchema = z.object({
   email: z.string().email("Email inválido"),
   phone: z.string().optional(),
   source: z.string().optional(),
-  status: z.nativeEnum(LeadStatus).default(LeadStatus.NEW),
+  status: z.enum(["NEW", "CONTACTED", "CONVERTED", "LOST"]).default("NEW"),
 })
 
 export type LeadFormValues = z.infer<typeof formSchema>
@@ -56,7 +55,7 @@ export function LeadForm({ initialData, onSuccess }: LeadFormProps) {
         email: "",
         phone: "",
         source: "",
-        status: LeadStatus.NEW,
+        status: "NEW",
       }
 
   const form = useForm<LeadFormValues>({

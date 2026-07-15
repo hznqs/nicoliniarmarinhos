@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Product, Category, Image as PrismaImage } from "@prisma/client"
+import type { Product, Category, Image as PrismaImage } from "@prisma/client"
 
 interface ProductWithRelations extends Product {
   category: Category | null

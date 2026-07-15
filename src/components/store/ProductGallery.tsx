@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Image as PrismaImage } from "@prisma/client"
+import type { Image as PrismaImage } from "@prisma/client"
 import { cn } from "@/lib/utils"
 
 interface ProductGalleryProps {

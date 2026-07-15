@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { deleteLead } from "@/server/actions/lead"
 import { useTransition, useState } from "react"
-import { LeadStatus } from "@prisma/client"
+import type { LeadStatus } from "@prisma/client"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { LeadForm } from "./form-lead"
 
