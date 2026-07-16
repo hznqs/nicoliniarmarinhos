@@ -1,8 +1,14 @@
 import type { NextConfig } from "next"
 
-const R2_PUBLIC_HOSTNAME = process.env.CLOUDFLARE_PUBLIC_URL
-  ? new URL(process.env.CLOUDFLARE_PUBLIC_URL).hostname
-  : ""
+const R2_PUBLIC_HOSTNAME = (() => {
+  try {
+    return process.env.CLOUDFLARE_PUBLIC_URL
+      ? new URL(process.env.CLOUDFLARE_PUBLIC_URL).hostname
+      : ""
+  } catch {
+    return ""
+  }
+})()
 
 const securityHeaders = [
   // Proíbe o site de ser embutido em iframes de outros domínios (Clickjacking)

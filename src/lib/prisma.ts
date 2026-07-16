@@ -2,9 +2,7 @@ import { PrismaClient } from "@prisma/client"
 import { Pool } from "pg"
 import { PrismaPg } from "@prisma/adapter-pg"
 
-const connectionString = process.env.DATABASE_URL
-
-// Definindo os tipos globais de forma robusta
+// Declaração robusta de variáveis globais para o padrão Singleton
 declare global {
   // eslint-disable-next-line no-var
   var prismaGlobal: PrismaClient | undefined
@@ -12,23 +10,13 @@ declare global {
   var pgPoolGlobal: Pool | undefined
 }
 
-// 1. Instancia o Pool uma única vez e guarda em cache no objeto global
-const pool = globalThis.pgPoolGlobal ?? new Pool({ connectionString })
-if (process.env.NODE_ENV !== "production") {
-  globalThis.pgPoolGlobal = pool
-}
-
-// 2. Cria o adaptador
+// O Pool e o PrismaClient são criados uma única vez e guardados no globalThis.
+// Isso previne vazamento de conexões tanto em desenvolvimento (HMR) quanto em produção (cold starts).
+const pool = globalThis.pgPoolGlobal ?? new Pool({ connectionString: process.env.DATABASE_URL })
 const adapter = new PrismaPg(pool)
 
-// 3. Função padrão para criar o Prisma Client
-const prismaClientSingleton = () => {
-  return new PrismaClient({ adapter })
-}
+export const prisma = globalThis.prismaGlobal ?? new PrismaClient({ adapter })
 
-// 4. Cria e guarda o PrismaClient no objeto global
-export const prisma = globalThis.prismaGlobal ?? prismaClientSingleton()
-
-if (process.env.NODE_ENV !== "production") {
-  globalThis.prismaGlobal = prisma
-}
+// Guarda as instâncias globalmente para reutilização
+globalThis.pgPoolGlobal = pool
+globalThis.prismaGlobal = prisma
