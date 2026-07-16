@@ -15,6 +15,7 @@ import { useState, useTransition } from "react"
 import { toast } from "sonner"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { CategoryForm } from "./form-category"
+import { deleteCategory } from "@/server/actions/category"
 
 const ActionsCell = ({ category, parentCategories }: { category: CategoryColumn, parentCategories: { id: string, name: string }[] }) => {
   const [isPending, startTransition] = useTransition()
