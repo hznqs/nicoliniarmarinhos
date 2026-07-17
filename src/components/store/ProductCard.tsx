@@ -1,5 +1,6 @@
 import Link from "next/link"
 import type { Product, Category, Image as PrismaImage } from "@prisma/client"
+import { AddToCartButton } from "./AddToCartButton"
 
 interface ProductWithRelations extends Product {
   category: Category | null
@@ -7,13 +8,16 @@ interface ProductWithRelations extends Product {
 }
 
 export function ProductCard({ product }: { product: ProductWithRelations }) {
+  const imageUrl = product.images && product.images.length > 0 ? product.images[0].url : null
+
   return (
-    <Link href={`/produtos/${product.slug}`} className="group relative flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1 h-full">
-      <div className="relative aspect-[3/4] bg-surface-container-low overflow-hidden rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]">
-        {product.images && product.images.length > 0 ? (
-          <img 
-            src={product.images[0].url} 
-            alt={product.images[0].alt || product.name} 
+    <div className="group relative flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1 h-full">
+      {/* Imagem clicável */}
+      <Link href={`/produtos/${product.slug}`} className="block relative aspect-[3/4] bg-surface-container-low overflow-hidden rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]">
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={product.images[0].alt || product.name}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -27,16 +31,20 @@ export function ProductCard({ product }: { product: ProductWithRelations }) {
           </div>
         )}
         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-          <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-sans text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+          <span className="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-sans text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
             Ver detalhes
-          </button>
+          </span>
         </div>
-      </div>
-      <div className="flex flex-col items-center text-center mt-2 flex-grow justify-end">
-        <span className="font-sans text-xs text-primary-container uppercase tracking-wider mb-1 font-bold">
+      </Link>
+
+      {/* Informações + botão */}
+      <div className="flex flex-col items-center text-center flex-grow gap-2">
+        <span className="font-sans text-xs text-primary-container uppercase tracking-wider font-bold">
           {product.category?.name || "Geral"}
         </span>
-        <h4 className="font-sans text-base text-on-surface mb-1 font-medium line-clamp-2">{product.name}</h4>
+        <Link href={`/produtos/${product.slug}`} className="hover:text-primary transition-colors">
+          <h4 className="font-sans text-base text-on-surface font-medium line-clamp-2">{product.name}</h4>
+        </Link>
         <div className="flex items-center gap-2 mt-auto pt-1">
           {product.oldPrice && (
             <span className="font-sans text-sm text-on-surface-variant line-through">
@@ -47,7 +55,20 @@ export function ProductCard({ product }: { product: ProductWithRelations }) {
             R$ {Number(product.price).toFixed(2).replace(".", ",")}
           </span>
         </div>
+        <div className="w-full mt-1">
+          <AddToCartButton
+            product={{
+              id: product.id,
+              name: product.name,
+              price: Number(product.price),
+              imageUrl,
+              slug: product.slug,
+            }}
+            variant="compact"
+          />
+        </div>
       </div>
-    </Link>
+    </div>
   )
 }
+

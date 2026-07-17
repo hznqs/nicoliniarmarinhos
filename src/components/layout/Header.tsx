@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma"
 import { unstable_cache } from "next/cache"
 import { MobileMenu } from "./MobileMenu"
 import { DesktopNav } from "./DesktopNav"
+import { CartIcon } from "@/components/ui/CartIcon"
 
 // Cache da empresa por 1 hora — dados raramente mudam e o Header é renderizado em cada página
 const getCachedCompany = unstable_cache(
@@ -47,6 +48,7 @@ export async function Header() {
             <Link href="/produtos" aria-label="Buscar produtos">
               <Search className="text-primary cursor-pointer hover:text-[var(--color-primary-container)] transition-colors duration-300 w-6 h-6" aria-hidden="true" />
             </Link>
+            <CartIcon />
           </div>
           <Link
             href="/contato"

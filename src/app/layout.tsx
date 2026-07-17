@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { CartProvider } from "@/contexts/CartContext";
+import { CartDrawer } from "@/components/store/CartDrawer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,8 +59,11 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </head>
       <body className="antialiased font-sans bg-background text-foreground overflow-x-hidden">
-        {children}
-        <Toaster />
+        <CartProvider>
+          {children}
+          <CartDrawer />
+          <Toaster />
+        </CartProvider>
       </body>
     </html>
   );

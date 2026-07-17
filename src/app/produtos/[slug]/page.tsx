@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { ProductGallery } from "@/components/store/ProductGallery"
 import { ProductCard } from "@/components/store/ProductCard"
+import { AddToCartButton } from "@/components/store/AddToCartButton"
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params
@@ -47,9 +48,9 @@ export default async function ProdutoDetalhePage({ params }: { params: Promise<{
     notFound()
   }
 
-  // Prepara o link do WhatsApp
+  // Prepara o link do WhatsApp (compra direta deste produto)
   const phone = "5511999999999" // Número fictício do Armarinho
-  const message = encodeURIComponent(`Olá, gostaria de saber mais ou orçar o produto: ${product.name} (SKU: ${product.sku || "N/A"})`)
+  const message = encodeURIComponent(`Olá! Tenho interesse no produto: ${product.name}`)
   const whatsappUrl = `https://wa.me/${phone}?text=${message}`
 
   // Buscar produtos relacionados
@@ -154,6 +155,16 @@ export default async function ProdutoDetalhePage({ params }: { params: Promise<{
 
             {/* Actions */}
             <div className="flex flex-col gap-4 mt-auto">
+              <AddToCartButton
+                product={{
+                  id: product.id,
+                  name: product.name,
+                  price: Number(product.price),
+                  imageUrl: product.images[0]?.url ?? null,
+                  slug: product.slug,
+                }}
+                variant="full"
+              />
               <a 
                 href={whatsappUrl} 
                 target="_blank" 
