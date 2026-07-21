@@ -5,9 +5,11 @@ import { X, Minus, Plus, ShoppingBag, MessageCircle, Trash2 } from "lucide-react
 import { useCart } from "@/contexts/CartContext"
 import Link from "next/link"
 
-const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "5511999999999"
+interface CartDrawerProps {
+  whatsappPhone: string
+}
 
-export function CartDrawer() {
+export function CartDrawer({ whatsappPhone }: CartDrawerProps) {
   const { items, isOpen, closeCart, removeItem, updateQty, totalPrice, totalItems, buildWhatsAppMessage } = useCart()
   const drawerRef = useRef<HTMLDivElement>(null)
 
@@ -27,7 +29,7 @@ export function CartDrawer() {
   }, [isOpen])
 
   const handleWhatsApp = () => {
-    const url = buildWhatsAppMessage(WHATSAPP_PHONE)
+    const url = buildWhatsAppMessage(whatsappPhone)
     window.open(url, "_blank", "noreferrer")
   }
 
@@ -127,6 +129,16 @@ export function CartDrawer() {
                   <span className="font-sans text-xs text-on-surface-variant">
                     R$ {item.price.toFixed(2).replace(".", ",")} cada
                   </span>
+                  {item.stock != null && item.stock <= 5 && item.stock > 0 && (
+                    <span className="font-sans text-xs text-amber-600 font-medium">
+                      ⚠ Últimas {item.stock} unidades
+                    </span>
+                  )}
+                  {item.stock === 0 && (
+                    <span className="font-sans text-xs text-red-600 font-medium">
+                      Produto sem estoque
+                    </span>
+                  )}
 
                   {/* Controle de quantidade */}
                   <div className="flex items-center gap-2 mt-auto">
@@ -143,7 +155,8 @@ export function CartDrawer() {
                     <button
                       onClick={() => updateQty(item.id, item.quantity + 1)}
                       aria-label={`Aumentar quantidade de ${item.name}`}
-                      className="w-7 h-7 rounded-full border border-outline-variant hover:bg-surface-container-high flex items-center justify-center transition-colors"
+                      disabled={item.stock != null && item.quantity >= item.stock}
+                      className="w-7 h-7 rounded-full border border-outline-variant hover:bg-surface-container-high flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       <Plus className="w-3 h-3 text-on-surface" />
                     </button>

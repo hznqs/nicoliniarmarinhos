@@ -39,7 +39,7 @@ export async function getCategories() {
 }
 
 export async function createCategory(data: z.infer<typeof CategorySchema>) {
-  await requireAdmin()
+  const session = await requireAdmin()
 
   const parsed = CategorySchema.safeParse(data)
   if (!parsed.success) {
@@ -56,6 +56,17 @@ export async function createCategory(data: z.infer<typeof CategorySchema>) {
         ...(parentIdToSave ? { parent: { connect: { id: parentIdToSave } } } : {})
       }
     })
+
+    await prisma.log.create({
+      data: {
+        userId: session.user.id,
+        action: "CREATE",
+        entity: "Category",
+        entityId: result.id,
+        details: `Criou a categoria "${result.name}"`,
+      }
+    })
+
     revalidatePath("/admin/categories")
     revalidatePath("/categorias")
     
@@ -67,7 +78,7 @@ export async function createCategory(data: z.infer<typeof CategorySchema>) {
 }
 
 export async function updateCategory(id: string, data: z.infer<typeof CategorySchema>) {
-  await requireAdmin()
+  const session = await requireAdmin()
   
   const parsed = CategorySchema.safeParse(data)
   if (!parsed.success) {
@@ -77,6 +88,8 @@ export async function updateCategory(id: string, data: z.infer<typeof CategorySc
   try {
     const parentIdToSave = parsed.data.parentId === "none" ? null : parsed.data.parentId
     const { parentId, ...restData } = parsed.data
+
+    const oldCategory = await prisma.category.findUnique({ where: { id } })
 
     const result = await prisma.category.update({ 
       where: { id },
@@ -88,6 +101,41 @@ export async function updateCategory(id: string, data: z.infer<typeof CategorySc
            )
       }
     })
+
+
+    let diffStr = ""
+    if (oldCategory) {
+      const changes: string[] = []
+      // Verifica os dados normais
+      for (const [key, newVal] of Object.entries(restData)) {
+        let oldVal = (oldCategory as any)[key]
+        const strOld = oldVal !== null && oldVal !== undefined ? oldVal.toString() : "vazio"
+        const strNew = newVal !== null && newVal !== undefined ? newVal.toString() : "vazio"
+        
+        if (strOld !== strNew && oldVal !== undefined) {
+          changes.push(`[${key}: ${strOld} ➔ ${strNew}]`)
+        }
+      }
+      // Verifica o parentId separadamente pois ele vem mapeado de forma diferente
+      const strOldParent = oldCategory.parentId !== null ? oldCategory.parentId.toString() : "nenhuma"
+      const strNewParent = parentIdToSave !== null ? parentIdToSave.toString() : "nenhuma"
+      if (strOldParent !== strNewParent) {
+        changes.push(`[parentId: ${strOldParent} ➔ ${strNewParent}]`)
+      }
+
+      if (changes.length > 0) diffStr = `\nAlterações: ${changes.join(', ')}`
+    }
+
+    await prisma.log.create({
+      data: {
+        userId: session.user.id,
+        action: "UPDATE",
+        entity: "Category",
+        entityId: result.id,
+        details: `Atualizou a categoria "${result.name}"${diffStr}`,
+      }
+    })
+
     revalidatePath("/admin/categories")
     revalidatePath("/categorias")
     
@@ -99,13 +147,24 @@ export async function updateCategory(id: string, data: z.infer<typeof CategorySc
 }
 
 export async function deleteCategory(id: string) {
-  await requireAdmin()
+  const session = await requireAdmin()
 
   try {
     await prisma.category.update({
       where: { id },
-      data: { deletedAt: new Date() },
+      data: { deletedAt: new Date() }
     })
+
+    await prisma.log.create({
+      data: {
+        userId: session.user.id,
+        action: "DELETE",
+        entity: "Category",
+        entityId: id,
+        details: `Excluiu uma categoria do catálogo`,
+      }
+    })
+
     revalidatePath("/admin/categories")
     revalidatePath("/categorias")
     return { success: true }

@@ -2,6 +2,8 @@ import Link from "next/link"
 import type { Product, Category, Image as PrismaImage } from "@prisma/client"
 import { AddToCartButton } from "./AddToCartButton"
 
+import Image from "next/image"
+
 interface ProductWithRelations extends Product {
   category: Category | null
   images: PrismaImage[]
@@ -15,10 +17,12 @@ export function ProductCard({ product }: { product: ProductWithRelations }) {
       {/* Imagem clicável */}
       <Link href={`/produtos/${product.slug}`} className="block relative aspect-[3/4] bg-surface-container-low overflow-hidden rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.04)]">
         {imageUrl ? (
-          <img
+          <Image
             src={imageUrl}
             alt={product.images[0].alt || product.name}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
           />
         ) : (
           <div className="w-full h-full bg-surface-variant flex items-center justify-center">

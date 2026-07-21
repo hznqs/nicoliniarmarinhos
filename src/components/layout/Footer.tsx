@@ -7,7 +7,11 @@ export async function Footer() {
   
   const phoneRaw = company?.whatsapp || company?.phone || "5511999999999"
   const phoneClean = phoneRaw.replace(/\D/g, '')
-  const whatsappUrl = `https://wa.me/${phoneClean}?text=Olá! Vim pelo site e gostaria de conversar.`
+  const companyName = company?.name || "Armarinho"
+  const whatsappMsg = encodeURIComponent(
+    `Olá, ${companyName}! 👋\n\nVim pelo site e gostaria de atendimento.\n\nPoderia me ajudar?`
+  )
+  const whatsappUrl = `https://wa.me/${phoneClean}?text=${whatsappMsg}`
 
   return (
     <footer className="bg-[var(--color-input)] w-full pt-16 pb-8 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
@@ -48,6 +52,7 @@ export async function Footer() {
           <ul className="space-y-4">
             <li><Link className="font-sans text-[16px] text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline" href="/produtos">Produtos</Link></li>
             <li><Link className="font-sans text-[16px] text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline" href="/categorias">Categorias</Link></li>
+            <li><Link className="font-sans text-[16px] text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline" href="/artesanal">Artesanal</Link></li>
             <li><Link className="font-sans text-[16px] text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline" href="/sobre">Sobre Nós</Link></li>
           </ul>
         </div>

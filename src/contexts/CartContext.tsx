@@ -11,6 +11,8 @@ export interface CartItem {
   imageUrl?: string | null
   slug: string
   quantity: number
+  stock?: number | null
+  sku?: string | null
 }
 
 interface CartState {
@@ -157,26 +159,35 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const buildWhatsAppMessage = useCallback(
     (phone: string) => {
+      const now = new Date().toLocaleString("pt-BR", {
+        dateStyle: "short",
+        timeStyle: "short",
+        timeZone: "America/Sao_Paulo",
+      })
+
       const lines = state.items.map((item) => {
         const total = (item.price * item.quantity).toFixed(2).replace(".", ",")
         const unitPrice = item.price.toFixed(2).replace(".", ",")
+        const skuPart = item.sku ? ` [${item.sku}]` : ""
         if (item.quantity > 1) {
-          return `• ${item.name} — ${item.quantity}x de R$ ${unitPrice} = R$ ${total}`
+          return `• ${item.name}${skuPart}\n  ${item.quantity}x de R$ ${unitPrice} = *R$ ${total}*`
         }
-        return `• ${item.name} — R$ ${unitPrice}`
+        return `• ${item.name}${skuPart} — *R$ ${unitPrice}*`
       })
 
       const totalFormatted = totalPrice.toFixed(2).replace(".", ",")
 
       const message = [
-        "Olá! Gostaria de fazer um pedido com os seguintes itens:",
+        `🛒 *Pedido via Site* — ${now}`,
         "",
-        "🛍️ *Meu Pedido:*",
+        "Olá! Gostaria de finalizar o seguinte pedido:",
+        "",
+        "📋 *Itens:*",
         ...lines,
         "",
-        `💰 *Total Estimado: R$ ${totalFormatted}*`,
+        `💰 *Total: R$ ${totalFormatted}*`,
         "",
-        "Poderia confirmar disponibilidade e formas de pagamento? 😊",
+        "Por favor, poderia confirmar disponibilidade e formas de pagamento? 😊",
       ].join("\n")
 
       const phoneClean = phone.replace(/\D/g, "")

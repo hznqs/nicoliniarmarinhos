@@ -18,14 +18,17 @@ export async function Header() {
 
   const phoneRaw = company?.whatsapp || company?.phone || "5511999999999"
   const phoneClean = phoneRaw.replace(/\D/g, "")
-  const whatsappUrl = `https://wa.me/${phoneClean}?text=Olá! Vim pelo site e gostaria de conversar.`
   const companyName = company?.name || "Armarinho"
+  const whatsappMsg = encodeURIComponent(
+    `Olá, ${companyName}! 👋\n\nVim pelo site e gostaria de atendimento.\n\nPoderia me ajudar?`
+  )
+  const whatsappUrl = `https://wa.me/${phoneClean}?text=${whatsappMsg}`
 
   return (
     <header className="bg-surface shadow-[0px_10px_30px_rgba(0,0,0,0.04)] top-0 sticky z-50">
-      <div className="flex justify-between items-center px-6 md:px-12 w-full max-w-[1460px] mx-auto h-20 md:h-28 gap-4 md:gap-8">
-        {/* Logo */}
-        <div className="flex-1 flex justify-start font-heading text-display-lg-mobile md:text-[32px] text-primary tracking-tight font-bold items-center gap-2">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 md:px-12 w-full max-w-[1460px] mx-auto h-20 md:h-28">
+        {/* Col 1 — Logo */}
+        <div className="flex justify-start font-heading text-display-lg-mobile md:text-[32px] text-primary tracking-tight font-bold items-center gap-2">
           {company?.logoUrl ? (
             <Link href="/" aria-label={`Ir para a página inicial — ${companyName}`} className="inline-block w-fit">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -36,11 +39,13 @@ export async function Header() {
           )}
         </div>
 
-        {/* Navegação desktop */}
-        <DesktopNav />
+        {/* Col 2 — Navegação desktop centralizada */}
+        <div className="hidden md:flex justify-self-center">
+          <DesktopNav />
+        </div>
 
-        {/* Ações desktop */}
-        <div className="hidden md:flex flex-1 justify-end items-center space-x-6">
+        {/* Col 3 — Ações desktop */}
+        <div className="hidden md:flex justify-self-end items-center space-x-6">
           <div className="flex items-center space-x-4">
             <Link href="/login" aria-label="Acessar login">
               <User className="text-primary cursor-pointer hover:text-[var(--color-primary-container)] transition-colors duration-300 w-6 h-6" aria-hidden="true" />
@@ -66,8 +71,10 @@ export async function Header() {
           </a>
         </div>
 
-        {/* Menu mobile — componente cliente com estado real */}
-        <MobileMenu whatsappUrl={whatsappUrl} companyName={companyName} />
+        {/* Col 3 mobile — menu hambúrguer */}
+        <div className="md:hidden col-start-3 flex justify-self-end">
+          <MobileMenu whatsappUrl={whatsappUrl} companyName={companyName} />
+        </div>
       </div>
     </header>
   )

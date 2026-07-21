@@ -51,7 +51,7 @@ const ActionsCell = ({ product, categories }: { product: ProductColumn, categori
         </DropdownMenuContent>
       </DropdownMenu>
       
-      <DialogContent className="max-w-3xl overflow-y-auto max-h-[90vh]">
+      <DialogContent className="sm:max-w-3xl md:max-w-4xl lg:max-w-5xl overflow-y-auto max-h-[90vh]">
         <DialogHeader>
           <DialogTitle>Editar Produto</DialogTitle>
           <DialogDescription>

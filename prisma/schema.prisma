@@ -117,31 +117,36 @@ model Category {
 }
 
 model Product {
-  id          String     @id @default(cuid())
+  id          String               @id @default(cuid())
   name        String
-  slug        String     @unique
-  description String?    @db.Text
-  details     String?    @db.Text
-  price       Decimal    @db.Decimal(10, 2)
-  oldPrice    Decimal?   @db.Decimal(10, 2)
-  sku         String?    @unique
-  stock       Int        @default(0)
-  isActive    Boolean    @default(true)
-  isFeatured  Boolean    @default(false)
+  slug        String               @unique
+  description String?              @db.Text
+  details     String?              @db.Text
+  price       Decimal              @db.Decimal(10, 2)
+  oldPrice    Decimal?             @db.Decimal(10, 2)
+  sku         String?              @unique
+  stock       Int                  @default(0)
+  isActive    Boolean              @default(true)
+  isFeatured  Boolean              @default(false)
+  isHandmade  Boolean              @default(false)
   categoryId  String
-  category    Category   @relation(fields: [categoryId], references: [id])
+  category    Category             @relation(fields: [categoryId], references: [id])
   images      Image[]
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  attributes  ProductAttribute[]
+  views       Int                  @default(0)
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
   // Soft Delete
   deletedAt   DateTime?
 
   @@index([categoryId])
   @@index([isActive])
   @@index([isFeatured])
+  @@index([isHandmade])
   @@index([createdAt])
   @@index([slug])
   @@index([deletedAt])
+  @@index([views])
 }
 
 model Image {
@@ -156,6 +161,19 @@ model Image {
 
   @@index([productId])
   @@index([galleryId])
+}
+
+model ProductAttribute {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  key       String   // Ex: "Cor", "Metragem", "Material"
+  value     String   // Ex: "Azul", "100m", "Algódao"
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@index([key])
 }
 
 model Banner {

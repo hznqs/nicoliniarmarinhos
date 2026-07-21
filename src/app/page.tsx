@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { TestimonialsCarousel } from "@/components/ui/testimonials-carousel"
 import { CategoriesCarousel } from "@/components/ui/categories-carousel"
+import { ProductCard } from "@/components/store/ProductCard"
 
 export default async function Home() {
   const banners = await prisma.banner.findMany({
@@ -29,6 +30,23 @@ export default async function Home() {
     take: 9,
     orderBy: { createdAt: "desc" },
   })
+
+  const featuredProducts = await prisma.product.findMany({
+    where: { isActive: true, deletedAt: null, isFeatured: true },
+    include: { category: true, images: true },
+    take: 8,
+    orderBy: { createdAt: "desc" },
+  })
+
+  // Se não houver produtos em destaque, pega os mais recentes
+  const productsToShow = featuredProducts.length > 0 
+    ? featuredProducts 
+    : await prisma.product.findMany({
+        where: { isActive: true, deletedAt: null },
+        include: { category: true, images: true },
+        take: 8,
+        orderBy: { createdAt: "desc" },
+      })
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -83,6 +101,34 @@ export default async function Home() {
             <div className="mt-12 text-center">
               <Link href="/categorias" className="text-primary font-medium hover:underline inline-flex items-center gap-2">
                 Ver todas as categorias <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+        )}
+
+        {/* Featured Products */}
+        {productsToShow.length > 0 && (
+          <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface max-w-[var(--spacing-container-max)] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-[32px] text-primary mb-4 font-semibold">
+                {featuredProducts.length > 0 ? "Produtos em Destaque" : "Novidades"}
+              </h2>
+              <p className="font-sans text-[16px] text-muted-foreground max-w-2xl mx-auto">
+                {featuredProducts.length > 0 
+                  ? "Seleção especial das melhores peças do nosso catálogo." 
+                  : "Confira os itens mais recentes adicionados ao nosso catálogo."}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {productsToShow.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/produtos" className="text-primary font-medium hover:underline inline-flex items-center gap-2">
+                Ver todos os produtos <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </section>

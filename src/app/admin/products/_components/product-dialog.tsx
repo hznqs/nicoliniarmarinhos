@@ -23,7 +23,7 @@ export function ProductDialog({ categories }: ProductDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={<Button><Plus className="mr-2 h-4 w-4" />Novo Produto</Button>} />
-      <DialogContent className="max-w-3xl overflow-y-auto max-h-[90vh]">
+      <DialogContent className="sm:max-w-3xl md:max-w-4xl lg:max-w-5xl overflow-y-auto max-h-[90vh]">
         <DialogHeader>
           <DialogTitle>Adicionar Novo Produto</DialogTitle>
           <DialogDescription>

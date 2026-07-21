@@ -62,10 +62,10 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    // Domínios permitidos para next/image (migração de <img> para <Image> na Fase 2)
-    remotePatterns: R2_PUBLIC_HOSTNAME
-      ? [{ protocol: "https", hostname: R2_PUBLIC_HOSTNAME }]
-      : [],
+    remotePatterns: [
+      { protocol: "https", hostname: "**" },
+      { protocol: "http", hostname: "**" },
+    ],
   },
 
   // Limitar tamanho do body de Server Actions para 5MB (prevenção de DoS)

@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, User, Search } from "lucide-react"
-
 import { usePathname } from "next/navigation"
+import { CartIcon } from "@/components/ui/CartIcon"
 
 interface MobileMenuProps {
   whatsappUrl: string
@@ -34,24 +34,26 @@ export function MobileMenu({ whatsappUrl, companyName }: MobileMenuProps) {
     { href: "/", label: "Início" },
     { href: "/produtos", label: "Produtos" },
     { href: "/categorias", label: "Categorias" },
-    { href: "/produtos?q=novidade", label: "Novidades" },
-    { href: "/produtos?q=promoção", label: "Promoções" },
+    { href: "/artesanal", label: "Artesanal" },
     { href: "/sobre", label: "Sobre" },
     { href: "/contato", label: "Contato" },
   ]
 
   return (
     <>
-      {/* Botão hambúrguer */}
-      <button
-        className="md:hidden text-primary p-2 rounded-md hover:bg-accent transition-colors"
-        onClick={() => setIsOpen(true)}
-        aria-label="Abrir menu de navegação"
-        aria-expanded={isOpen}
-        aria-controls="mobile-nav"
-      >
-        <Menu className="w-6 h-6" aria-hidden="true" />
-      </button>
+      {/* Botão hambúrguer + ícone do carrinho lado a lado no mobile */}
+      <div className="md:hidden flex items-center gap-3">
+        <CartIcon />
+        <button
+          className="text-primary p-2 rounded-md hover:bg-accent transition-colors"
+          onClick={() => setIsOpen(true)}
+          aria-label="Abrir menu de navegação"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
+        >
+          <Menu className="w-6 h-6" aria-hidden="true" />
+        </button>
+      </div>
 
       {/* Overlay escuro */}
       {isOpen && (

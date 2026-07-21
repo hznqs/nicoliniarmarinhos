@@ -11,6 +11,7 @@ interface AddToCartButtonProps {
     price: number
     imageUrl?: string | null
     slug: string
+    sku?: string | null
   }
   /** "full" mostra botão completo com controle de quantidade (página de detalhe)  
    *  "compact" mostra apenas o botão para cards da listagem */
@@ -32,6 +33,7 @@ export function AddToCartButton({ product, variant = "compact" }: AddToCartButto
       price: Number(product.price),
       imageUrl: product.imageUrl,
       slug: product.slug,
+      sku: product.sku,
     })
 
     // Feedback visual de "adicionado"

@@ -10,14 +10,13 @@ export function DesktopNav() {
     { href: "/", label: "Início" },
     { href: "/produtos", label: "Produtos" },
     { href: "/categorias", label: "Categorias" },
-    { href: "/produtos?q=novidade", label: "Novidades" },
-    { href: "/produtos?q=promoção", label: "Promoções" },
+    { href: "/artesanal", label: "Artesanal" },
     { href: "/sobre", label: "Sobre" },
     { href: "/contato", label: "Contato" },
   ]
 
   return (
-    <nav className="hidden md:flex items-center space-x-8 flex-none justify-center" aria-label="Navegação principal">
+    <nav className="flex items-center space-x-8 flex-none justify-center" aria-label="Navegação principal">
       {navLinks.map(({ href, label }) => {
         // Para a home "/", só é ativo se o pathname for exatamente "/"
         // Para os outros, verifica se o pathname começa com o href

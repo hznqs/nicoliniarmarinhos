@@ -4,6 +4,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { CartProvider } from "@/contexts/CartContext";
 import { CartDrawer } from "@/components/store/CartDrawer";
+import { prisma } from "@/lib/prisma";
+import { unstable_cache } from "next/cache";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,11 +50,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const getCachedWhatsapp = unstable_cache(
+  async () => {
+    const company = await prisma.company.findFirst({
+      select: { whatsapp: true, phone: true },
+    })
+    const raw = company?.whatsapp || company?.phone || ""
+    return raw.replace(/\D/g, "")
+  },
+  ["company-whatsapp"],
+  { revalidate: 3600, tags: ["company"] }
+)
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const whatsappPhone = await getCachedWhatsapp()
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
       <head>
@@ -61,7 +76,7 @@ export default function RootLayout({
       <body className="antialiased font-sans bg-background text-foreground overflow-x-hidden">
         <CartProvider>
           {children}
-          <CartDrawer />
+          <CartDrawer whatsappPhone={whatsappPhone} />
           <Toaster />
         </CartProvider>
       </body>

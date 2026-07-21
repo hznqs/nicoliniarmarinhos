@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer"
 import { ProductGallery } from "@/components/store/ProductGallery"
 import { ProductCard } from "@/components/store/ProductCard"
 import { AddToCartButton } from "@/components/store/AddToCartButton"
+import { ProductViewTracker } from "@/components/store/ProductViewTracker"
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params
@@ -41,17 +42,29 @@ export default async function ProdutoDetalhePage({ params }: { params: Promise<{
   const resolvedParams = await params
   const product = await prisma.product.findUnique({
     where: { slug: resolvedParams.slug, isActive: true },
-    include: { category: true, images: true }
+    include: { category: true, images: true, attributes: { orderBy: [{ key: "asc" }, { order: "asc" }] } }
   })
 
   if (!product) {
     notFound()
   }
 
-  // Prepara o link do WhatsApp (compra direta deste produto)
-  const phone = "5511999999999" // Número fictício do Armarinho
-  const message = encodeURIComponent(`Olá! Tenho interesse no produto: ${product.name}`)
-  const whatsappUrl = `https://wa.me/${phone}?text=${message}`
+  // Prepara o link do WhatsApp com dados reais da empresa e do produto
+  const company = await prisma.company.findFirst()
+  const phoneRaw = company?.whatsapp || company?.phone || "5511999999999"
+  const phoneClean = phoneRaw.replace(/\D/g, "")
+  const priceFormatted = Number(product.price).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+  const skuLine = product.sku ? `\n🔖 *Código (SKU):* ${product.sku}` : ""
+  const whatsappMessage = encodeURIComponent(
+    `Olá, ${company?.name || "Armarinho"}! 👋\n\n` +
+    `Tenho interesse em um produto do site:\n\n` +
+    `📦 *Produto:* ${product.name}\n` +
+    `🏷️ *Categoria:* ${product.category.name}\n` +
+    `💰 *Preço:* ${priceFormatted}` +
+    skuLine +
+    `\n\nPoderia verificar disponibilidade e formas de pagamento?`
+  )
+  const whatsappUrl = `https://wa.me/${phoneClean}?text=${whatsappMessage}`
 
   // Buscar produtos relacionados
   const relatedProducts = product.categoryId 
@@ -87,7 +100,8 @@ export default async function ProdutoDetalhePage({ params }: { params: Promise<{
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20 selection:text-primary">
+      <ProductViewTracker slug={product.slug} />
       <Header />
       {/* Schema.org Script */}
       <script
@@ -150,6 +164,40 @@ export default async function ProdutoDetalhePage({ params }: { params: Promise<{
             <p className="font-sans text-base text-on-surface-variant mb-10 leading-relaxed whitespace-pre-line">
               {product.description || "Este produto não possui descrição detalhada."}
             </p>
+
+            {/* Características do produto */}
+            {product.attributes.length > 0 && (() => {
+              // Agrupa valores por chave
+              const grouped = product.attributes.reduce<Record<string, string[]>>(
+                (acc, attr) => {
+                  if (!acc[attr.key]) acc[attr.key] = []
+                  acc[attr.key].push(attr.value)
+                  return acc
+                },
+                {}
+              )
+              return (
+                <div className="mb-10 flex flex-col gap-4">
+                  {Object.entries(grouped).map(([key, values]) => (
+                    <div key={key} className="flex flex-col gap-2">
+                      <span className="font-sans text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                        {key}
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {values.map((val) => (
+                          <span
+                            key={val}
+                            className="inline-block bg-surface-container text-on-surface font-sans text-sm px-3 py-1.5 rounded-lg border border-outline-variant"
+                          >
+                            {val}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )
+            })()}
 
 
 
