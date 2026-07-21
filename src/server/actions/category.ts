@@ -118,7 +118,7 @@ export async function updateCategory(id: string, data: z.infer<typeof CategorySc
       }
       // Verifica o parentId separadamente pois ele vem mapeado de forma diferente
       const strOldParent = oldCategory.parentId !== null ? oldCategory.parentId.toString() : "nenhuma"
-      const strNewParent = parentIdToSave !== null ? parentIdToSave.toString() : "nenhuma"
+      const strNewParent = parentIdToSave ? parentIdToSave.toString() : "nenhuma"
       if (strOldParent !== strNewParent) {
         changes.push(`[parentId: ${strOldParent} ➔ ${strNewParent}]`)
       }
